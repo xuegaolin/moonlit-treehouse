@@ -1,0 +1,141 @@
+.page {
+    min-height: 100vh;
+    background-color: #1F1C33;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120rpx 0;
+    color: #9C97B8;
+    font-size: 28rpx;
+    flex: 1;
+}
+
+.message-list {
+    flex: 1;
+    padding: 24rpx 32rpx 20rpx;
+    overflow-y: auto;
+}
+
+.empty-tip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120rpx 0;
+    color: #6E6899;
+    font-size: 26rpx;
+}
+
+.message-item {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-bottom: 32rpx;
+}
+
+.message-me {
+    flex-direction: row-reverse;
+}
+
+.message-avatar {
+    width: 72rpx;
+    height: 72rpx;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6B5CE7 0%, #8B7CF7 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.avatar-me {
+    background: linear-gradient(135deg, #F5D76E 0%, #E5C75E 100%);
+}
+
+.avatar-text {
+    font-size: 32rpx;
+    color: #FFFFFF;
+    font-weight: 500;
+}
+
+.message-bubble {
+    max-width: 520rpx;
+    padding: 20rpx 28rpx;
+    border-radius: 24rpx;
+    background: #2A2450;
+    position: relative;
+}
+
+.message-me .message-bubble {
+    background: linear-gradient(135deg, #6B5CE7 0%, #5B4CD8 100%);
+    margin-right: 0;
+    margin-left: 16rpx;
+}
+
+.message-other .message-bubble {
+    margin-left: 16rpx;
+}
+
+.message-text {
+    font-size: 28rpx;
+    color: #E8E6F5;
+    line-height: 1.6;
+    word-break: break-word;
+}
+
+.message-status {
+    font-size: 20rpx;
+    color: #9C97B8;
+    margin-top: 8rpx;
+    display: block;
+}
+
+.input-area {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 16rpx 32rpx;
+    background: #2A2450;
+    border-top: 1rpx solid #3A3460;
+    padding-bottom: calc(16rpx + env(safe-area-inset-bottom));
+}
+
+.input-box {
+    flex: 1;
+    background: #3A3460;
+    border-radius: 32rpx;
+    padding: 16rpx 24rpx;
+    margin-right: 16rpx;
+}
+
+.input-text {
+    font-size: 28rpx;
+    color: #E8E6F5;
+    line-height: 1.5;
+}
+
+.send-btn {
+    padding: 16rpx 32rpx;
+    background: #4A4480;
+    border-radius: 32rpx;
+    transition: background 0.2s;
+}
+
+.send-btn-active {
+    background: linear-gradient(135deg, #6B5CE7 0%, #5B4CD8 100%);
+}
+
+.send-btn text {
+    font-size: 28rpx;
+    color: #E8E6F5;
+    font-weight: 500;
+}
+
+.send-btn-active text {
+    color: #FFFFFF;
+}

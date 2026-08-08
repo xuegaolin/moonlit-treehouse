@@ -1,0 +1,128 @@
+<view class="page">
+
+  <!-- 顶部条：会员状态 + 实名状态 -->
+  <view class="header">
+    <view class="header-row">
+      <text class="header-title">设置</text>
+      <text wx:if="{{privacy.isMember}}" class="header-tag">会员</text>
+      <text wx:else class="header-tag header-tag-free">免费用户</text>
+    </view>
+    <text class="header-desc">实名认证后才能开放聊天 / 加好友；匿名 ID 仍可正常使用</text>
+  </view>
+
+  <!-- 加载中 -->
+  <view wx:if="{{loading}}" class="loading text-muted">加载中…</view>
+
+  <block wx:else>
+
+    <!-- ============== 模块：社交功能 ============== -->
+    <view class="section">
+      <view class="section-title">社交功能</view>
+      <view class="section-hint">开启后，其他会员可以向你发起私聊 / 加你为好友。关闭后别人看不到你。</view>
+
+      <!-- 未实名状态提示（放在社交功能下面、开放聊天上面） -->
+      <view wx:if="{{!privacy.realNameVerified}}" class="realname-section">
+        <view class="realname-card">
+          <view class="realname-icon">🔐</view>
+          <view class="realname-info">
+            <view class="realname-title">完成实名认证</view>
+            <view class="realname-desc">获取手机号，快速完成身份核验</view>
+          </view>
+          <button 
+            class="realname-btn" 
+            bindtap="doRealNameVerify"
+          >
+            去认证
+          </button>
+        </view>
+      </view>
+
+      <!-- 已实名状态卡（实名后才显示） -->
+      <view wx:if="{{privacy.realNameVerified}}" class="verify-card verify-ok">
+        <view class="verify-icon">✓</view>
+        <view class="verify-info">
+          <view class="verify-title">已通过微信实名</view>
+          <view class="verify-desc">后台已记录真实身份，用于内容审核。UI 中你仍是匿名 ID。</view>
+        </view>
+        <view class="verify-action" bindtap="cancelRealName">
+          <text>取消</text>
+        </view>
+      </view>
+
+      <!-- 开放聊天 -->
+      <switch-card
+        title="开放聊天"
+        desc="允许其他会员向你发起私聊"
+        checked="{{privacy.chatEnabled}}"
+        disabled="{{!privacy.isMember || !privacy.realNameVerified}}"
+        badge="{{privacy.isMember ? '' : '会员'}}"
+        bind:change="onToggleChat"
+        bind:disabledtap="onMemberRequired"
+      />
+      
+      <!-- 聊天记录保存期（仅在聊天开关打开时显示） -->
+      <view wx:if="{{privacy.chatEnabled}}" class="keep-section">
+        <view class="keep-row" bindtap="showKeepPicker">
+          <text class="keep-label">聊天记录保存时长</text>
+          <view class="keep-value">
+            <text>{{currentKeepText}}</text>
+            <text class="keep-arrow">›</text>
+          </view>
+        </view>
+      </view>
+      
+      <!-- 展开提示：用户点击后才显示 -->
+      <view wx:if="{{showChatHint}}" class="expand-panel">
+        <text wx:if="{{!privacy.realNameVerified}}" class="expand-text">⚠️ 根据工信部《互联网用户账号信息服务管理规定》，开放聊天需要先完成实名认证。开启后你的发言会被审核与留存。</text>
+        <text wx:elif="{{!privacy.isMember}}" class="expand-text">🔒 社交功能仅向会员开放。开通会员后即可开启聊天。</text>
+      </view>
+
+      <!-- 开放加好友 -->
+      <switch-card
+        title="开放加好友"
+        desc="允许其他会员加你为好友，看到你后续的瓶子"
+        checked="{{privacy.friendEnabled}}"
+        disabled="{{!privacy.isMember || !privacy.realNameVerified}}"
+        badge="{{privacy.isMember ? '' : '会员'}}"
+        bind:change="onToggleFriend"
+        bind:disabledtap="onMemberRequired"
+      />
+      <view wx:if="{{showFriendHint}}" class="expand-panel">
+        <text wx:if="{{!privacy.realNameVerified}}" class="expand-text">⚠️ 加好友同样需要先实名。好友间消息默认匿名，可单独约定展示真名。</text>
+        <text wx:elif="{{!privacy.isMember}}" class="expand-panel-text">🔒 会员才能使用加好友功能。</text>
+      </view>
+
+    </view>
+
+    <!-- ============== 模块：其他 ============== -->
+    <view class="section">
+      <view class="section-title">其他</view>
+
+      <switch-card
+        title="功能投票"
+        desc="提需求 / 投票 / 看你提的想法有没有人想要"
+        show-arrow="{{true}}"
+        bind:arrowtap="goFeatureVote"
+      />
+
+      <switch-card
+        title="会员中心"
+        desc="{{privacy.memberExpireAt ? '到期时间：' + privacy.memberExpireAt : '当前为免费用户，开通享受更多功能'}}"
+        show-arrow="{{true}}"
+        bind:arrowtap="goMember"
+      />
+
+      <switch-card
+        title="用户协议与隐私政策"
+        desc="发布内容即视为同意实名认证与内容审核"
+        show-arrow="{{true}}"
+        bind:arrowtap="onAgreement"
+      />
+    </view>
+
+    <!-- 底部版本号 -->
+    <view class="footer text-muted">今夜树屋 v1.5 · {{buildId}}</view>
+
+  </block>
+
+</view>

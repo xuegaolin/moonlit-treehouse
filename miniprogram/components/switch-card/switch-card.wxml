@@ -1,0 +1,21 @@
+<view
+  class="sc {{disabled ? 'sc-disabled' : ''}}"
+  hover-class="sc-hover"
+  bindtap="onTap"
+>
+  <view class="sc-left">
+    <view class="sc-title-row">
+      <text class="sc-title">{{title}}</text>
+      <text wx:if="{{badge}}" class="sc-badge">{{badge}}</text>
+    </view>
+    <text wx:if="{{desc}}" class="sc-desc">{{desc}}</text>
+    <slot name="desc" />
+  </view>
+  <view class="sc-right">
+    <slot name="right" />
+    <view wx:if="{{showArrow}}" class="sc-arrow">›</view>
+    <view wx:elif="{{!disabled}}" class="sc-switch {{checked ? 'sc-switch-on' : ''}}">
+      <view class="sc-switch-dot"></view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,339 @@
+.page {
+  min-height: 100vh;
+  padding-bottom: 80rpx;
+  background: linear-gradient(180deg, #2A2450 0%, #1F1C33 40%);
+}
+
+/* ====== Tab 栏 ====== */
+.tabbar {
+  display: flex;
+  flex-direction: row;
+  background: #1F1C33;
+  border-bottom: 1rpx solid #2A2450;
+}
+
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 24rpx 0;
+  color: #9C97B8;
+  font-size: 26rpx;
+  position: relative;
+}
+
+.tab-emoji {
+  display: block;
+  font-size: 36rpx;
+  margin-bottom: 4rpx;
+}
+
+.tab-label {
+  font-size: 24rpx;
+}
+
+.tab-active {
+  color: #F5D76E;
+}
+
+.tab-active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60rpx;
+  height: 4rpx;
+  background: #F5D76E;
+  border-radius: 2rpx;
+}
+
+/* ====== Hero ====== */
+.hero {
+  text-align: center;
+  padding: 40rpx 32rpx 24rpx;
+}
+
+.hero-title {
+  font-size: 34rpx;
+  font-weight: 700;
+  color: #E8E6F5;
+}
+
+.hero-desc {
+  font-size: 24rpx;
+  margin-top: 8rpx;
+}
+
+/* ====== 木鱼 ====== */
+.mokugyo-area {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60rpx 0 40rpx;
+}
+
+.plus-one {
+  position: absolute;
+  top: 80rpx;
+  font-size: 48rpx;
+  color: #F5D76E;
+  font-weight: 700;
+  animation: fadeUp 0.6s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes fadeUp {
+  0% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-80rpx); }
+}
+
+.mokugyo-btn {
+  width: 360rpx;
+  height: 360rpx;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6B5436 0%, #4A3820 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 16rpx 48rpx rgba(0, 0, 0, 0.4),
+              inset 0 -8rpx 16rpx rgba(0, 0, 0, 0.3),
+              inset 0 4rpx 8rpx rgba(245, 215, 110, 0.2);
+  border: 4rpx solid #8B6E3A;
+  transition: transform 0.1s ease;
+}
+
+.mokugyo-btn-hover {
+  transform: scale(0.96);
+  box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.4),
+              inset 0 -4rpx 8rpx rgba(0, 0, 0, 0.3);
+}
+
+.mokugyo-emoji {
+  font-size: 140rpx;
+  margin-bottom: 8rpx;
+}
+
+.mokugyo-text {
+  font-size: 26rpx;
+  color: #F5D76E;
+  letter-spacing: 4rpx;
+}
+
+/* ====== 功德统计 ====== */
+.merit-card {
+  margin: 32rpx 24rpx 0;
+  background: #2A2450;
+  border-radius: 20rpx;
+  padding: 32rpx 28rpx;
+}
+
+.merit-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.merit-item {
+  flex: 1;
+  text-align: center;
+}
+
+.merit-num {
+  font-size: 44rpx;
+  font-weight: 700;
+}
+
+.merit-label {
+  font-size: 22rpx;
+  margin-top: 6rpx;
+}
+
+.merit-divider {
+  width: 1rpx;
+  height: 60rpx;
+  background: rgba(245, 215, 110, 0.2);
+}
+
+.merit-tip {
+  text-align: center;
+  font-size: 22rpx;
+  margin-top: 20rpx;
+}
+
+.footer {
+  text-align: center;
+  font-size: 22rpx;
+  margin-top: 60rpx;
+  font-style: italic;
+}
+
+/* ====== 许愿池 ====== */
+.section-title {
+  font-size: 26rpx;
+  color: #9C97B8;
+}
+
+.chips {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 12rpx;
+}
+
+.chip {
+  background: #2A2450;
+  color: #B9B3E8;
+  font-size: 26rpx;
+  padding: 14rpx 28rpx;
+  border-radius: 999rpx;
+  margin: 0 12rpx 12rpx 0;
+  border: 1rpx solid transparent;
+}
+
+.chip-active {
+  background: rgba(107, 92, 231, 0.25);
+  color: #ffffff;
+  border-color: #6B5CE7;
+}
+
+.wish-area {
+  width: 100%;
+  min-height: 140rpx;
+  background: #1F1C33;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  color: #E8E6F5;
+  font-size: 28rpx;
+  line-height: 1.7;
+  margin-top: 12rpx;
+  box-sizing: border-box;
+}
+
+.input-ph {
+  color: #6E6899;
+}
+
+.row-between {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.submit-btn {
+  margin-top: 28rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  font-size: 30rpx;
+}
+
+.loading,
+.empty {
+  text-align: center;
+  padding: 100rpx 0;
+  font-size: 26rpx;
+}
+
+.empty-icon {
+  font-size: 100rpx;
+  opacity: 0.5;
+}
+
+.empty-title {
+  font-size: 32rpx;
+  color: #E8E6F5;
+  margin-top: 20rpx;
+  font-weight: 600;
+}
+
+.empty-desc {
+  font-size: 24rpx;
+  margin-top: 12rpx;
+}
+
+.wish-list {
+  padding: 0 24rpx;
+}
+
+.wish-item {
+  background: #2A2450;
+  border-radius: 20rpx;
+  padding: 24rpx 28rpx;
+  margin-bottom: 20rpx;
+  position: relative;
+}
+
+.wish-head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wish-id {
+  font-size: 22rpx;
+  font-family: monospace;
+}
+
+.status-tag {
+  font-size: 20rpx;
+  padding: 4rpx 14rpx;
+  border-radius: 999rpx;
+}
+
+.status-open {
+  background: rgba(245, 215, 110, 0.15);
+  color: #F5D76E;
+  border: 1rpx solid rgba(245, 215, 110, 0.3);
+}
+
+.status-achieved {
+  background: rgba(107, 92, 231, 0.18);
+  color: #B9B3E8;
+  border: 1rpx solid rgba(107, 92, 231, 0.3);
+}
+
+.status-closed,
+.status-expired {
+  background: rgba(156, 151, 184, 0.15);
+  color: #6E6899;
+  border: 1rpx solid rgba(156, 151, 184, 0.2);
+}
+
+.wish-content {
+  font-size: 30rpx;
+  color: #E8E6F5;
+  margin-top: 16rpx;
+  line-height: 1.7;
+}
+
+.wish-meta {
+  font-size: 22rpx;
+  margin-top: 16rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.wish-blessing {
+  font-size: 26rpx;
+  color: #D8D4F0;
+  font-style: italic;
+  margin-top: 16rpx;
+  padding: 16rpx 20rpx;
+  background: rgba(245, 215, 110, 0.08);
+  border-left: 4rpx solid #F5D76E;
+  border-radius: 8rpx;
+  line-height: 1.7;
+}
+
+.wish-action {
+  position: absolute;
+  bottom: 20rpx;
+  right: 24rpx;
+  font-size: 24rpx;
+  color: #6B5CE7;
+  padding: 8rpx 16rpx;
+}

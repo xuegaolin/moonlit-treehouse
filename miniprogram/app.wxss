@@ -1,0 +1,75 @@
+/* app.wxss — 全局样式：深夜月光主题 */
+page {
+  background: #1F1C33;
+  color: #E8E6F5;
+  font-size: 28rpx;
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', sans-serif;
+}
+
+/* 通用卡片 */
+.card {
+  background: #2A2450;
+  border-radius: 24rpx;
+  padding: 32rpx;
+  margin: 24rpx;
+  box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.25);
+}
+
+/* 主按钮（月光紫） */
+.btn-primary {
+  background: #6B5CE7;
+  color: #ffffff;
+  border-radius: 999rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+  padding: 20rpx 0;
+  text-align: center;
+}
+
+.btn-primary::after {
+  border: none;
+}
+
+.btn-primary[disabled] {
+  background: #4A4480;
+  color: #9C97B8;
+}
+
+/* 次级按钮（描边） */
+.btn-ghost {
+  background: transparent;
+  color: #B9B3E8;
+  border: 2rpx solid #6B5CE7;
+  border-radius: 999rpx;
+  font-size: 28rpx;
+  padding: 16rpx 0;
+  text-align: center;
+}
+
+.btn-ghost::after {
+  border: none;
+}
+
+/* 文本辅助色 */
+.text-muted {
+  color: #9C97B8;
+}
+
+/* 金色强调 */
+.text-gold {
+  color: #F5D76E;
+}
+
+/* 横向布局 */
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.row-between {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}

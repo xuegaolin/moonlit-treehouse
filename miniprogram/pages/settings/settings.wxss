@@ -1,0 +1,246 @@
+.page {
+  min-height: 100vh;
+  padding-bottom: 80rpx;
+  background: linear-gradient(180deg, #2A2450 0%, #1F1C33 100%);
+}
+
+.header {
+  padding: 32rpx 32rpx 16rpx;
+}
+
+.header-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 8rpx;
+}
+
+.header-title {
+  font-size: 40rpx;
+  font-weight: 700;
+  color: #E8E6F5;
+  margin-right: 16rpx;
+}
+
+.header-tag {
+  font-size: 22rpx;
+  color: #2A2450;
+  background: #F5D76E;
+  padding: 4rpx 16rpx;
+  border-radius: 999rpx;
+  font-weight: 600;
+}
+
+.header-tag-free {
+  color: #9C97B8;
+  background: transparent;
+  border: 1rpx solid #4A4480;
+}
+
+.header-desc {
+  font-size: 22rpx;
+  color: #9C97B8;
+  margin-top: 4rpx;
+}
+
+.verify-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 24rpx;
+  padding: 24rpx;
+  border-radius: 20rpx;
+  background: #2A2450;
+  border-left: 6rpx solid #4ECDC4;
+}
+
+.verify-ok {
+  border-left-color: #4ECDC4;
+  background: linear-gradient(135deg, rgba(78, 205, 196, 0.08) 0%, #2A2450 100%);
+}
+
+.verify-pending {
+  border-left-color: #FF6B81;
+  background: linear-gradient(135deg, rgba(255, 107, 129, 0.08) 0%, #2A2450 100%);
+}
+
+.verify-icon {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+  background: #4ECDC4;
+  color: #FFFFFF;
+  font-size: 40rpx;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+}
+
+.verify-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.verify-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #E8E6F5;
+  margin-bottom: 6rpx;
+}
+
+.verify-desc {
+  font-size: 22rpx;
+  color: #9C97B8;
+  line-height: 1.5;
+}
+
+.verify-action {
+  background: rgba(245, 215, 110, 0.15);
+  color: #F5D76E;
+  font-size: 24rpx;
+  padding: 12rpx 20rpx;
+  border-radius: 999rpx;
+  border: 1rpx solid rgba(245, 215, 110, 0.3);
+  flex-shrink: 0;
+  margin-left: 12rpx;
+}
+
+.expand-panel {
+  background: rgba(255, 107, 129, 0.06);
+  border-left: 3rpx solid rgba(255, 107, 129, 0.5);
+  padding: 16rpx 24rpx;
+  border-radius: 12rpx;
+  margin: -8rpx 0 16rpx 32rpx;
+}
+
+.expand-text {
+  font-size: 22rpx;
+  color: #B9B3E8;
+  line-height: 1.6;
+}
+
+.section {
+  margin: 32rpx 24rpx 0;
+}
+
+.section-title {
+  font-size: 24rpx;
+  color: #B9B3E8;
+  margin-bottom: 8rpx;
+  padding-left: 8rpx;
+  font-weight: 600;
+  letter-spacing: 1rpx;
+}
+
+.section-hint {
+  font-size: 22rpx;
+  color: #6E6899;
+  margin: 0 8rpx 16rpx;
+  line-height: 1.5;
+}
+
+.loading {
+  text-align: center;
+  padding: 80rpx 0;
+  font-size: 24rpx;
+}
+
+.keep-section {
+  margin-top: 16rpx;
+}
+
+.keep-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24rpx 20rpx;
+  background: #2A2450;
+  border-radius: 16rpx;
+  margin-bottom: 16rpx;
+}
+
+.keep-label {
+  font-size: 28rpx;
+  color: #E8E6F5;
+}
+
+.keep-value {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.keep-value text {
+  font-size: 26rpx;
+  color: #9C97B8;
+}
+
+.keep-arrow {
+  font-size: 36rpx;
+  color: #6E6899;
+  margin-left: 8rpx;
+}
+
+.footer {
+  text-align: center;
+  padding: 60rpx 0 40rpx;
+  font-size: 22rpx;
+  opacity: 0.6;
+}
+
+.realname-section {
+  margin-top: 24rpx;
+}
+
+.realname-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 24rpx 28rpx;
+  background: rgba(107, 92, 231, 0.1);
+  border-radius: 16rpx;
+  border: 1rpx solid rgba(107, 92, 231, 0.3);
+}
+
+.realname-icon {
+  font-size: 48rpx;
+  margin-right: 20rpx;
+}
+
+.realname-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.realname-title {
+  font-size: 28rpx;
+  color: #E8E6F5;
+  font-weight: 500;
+  margin-bottom: 6rpx;
+}
+
+.realname-desc {
+  font-size: 22rpx;
+  color: #9C97B8;
+}
+
+.realname-btn {
+  padding: 16rpx 32rpx;
+  background: linear-gradient(135deg, #6B5CE7 0%, #5B4CD8 100%);
+  border-radius: 32rpx;
+  font-size: 26rpx;
+  color: #FFFFFF;
+  border: none;
+  line-height: 1;
+}
+
+.realname-btn::after {
+  border: none;
+}

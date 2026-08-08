@@ -1,0 +1,126 @@
+<view class="page">
+
+  <!-- Tab 栏 -->
+  <view class="tabbar">
+    <view class="tab {{activeTab === 'list' ? 'tab-active' : ''}}" data-tab="list" bindtap="switchTab">
+      <text>全部建议</text>
+    </view>
+    <view class="tab {{activeTab === 'mine' ? 'tab-active' : ''}}" data-tab="mine" bindtap="switchTab">
+      <text>我提的</text>
+    </view>
+  </view>
+
+  <!-- ============== 全部建议 ============== -->
+  <block wx:if="{{activeTab === 'list'}}">
+
+    <!-- 提交按钮 -->
+    <view class="submit-fab" hover-class="submit-fab-hover" bindtap="onCreate">
+      <text class="submit-fab-icon">+</text>
+      <text>提个想法</text>
+    </view>
+
+    <view wx:if="{{loading && list.length === 0}}" class="loading text-muted">加载中…</view>
+    <view wx:elif="{{list.length === 0}}" class="empty">
+      <view class="empty-icon">💡</view>
+      <view class="empty-title">还没有建议</view>
+      <view class="empty-desc text-muted">你提的第一个需求，会被认真看</view>
+    </view>
+
+    <view wx:else class="feature-list">
+      <view
+        wx:for="{{list}}"
+        wx:key="id"
+        class="feature-card card"
+      >
+        <view class="feature-head">
+          <view class="feature-title">{{item.title}}</view>
+          <view class="feature-status feature-status-{{item.status}}">{{statusText(item.status)}}</view>
+        </view>
+        <view class="feature-desc">{{item.description}}</view>
+        <view class="feature-foot">
+          <view class="feature-meta text-muted">
+            <text wx:if="{{item.mine}}">我提的 · </text>
+            <text>{{item.createTime}}</text>
+          </view>
+          <view
+            class="vote-btn {{item.voted ? 'vote-btn-voted' : ''}} {{item.status === 'DONE' ? 'vote-btn-disabled' : ''}}"
+            data-id="{{item.id}}"
+            data-voted="{{item.voted}}"
+            bindtap="onVote"
+          >
+            <text wx:if="{{item.status === 'DONE'}}">已上线</text>
+            <text wx:elif="{{item.voted}}">✓ {{item.voteCount}}</text>
+            <text wx:else>▲ {{item.voteCount}}</text>
+          </view>
+        </view>
+      </view>
+
+      <view wx:if="{{loading}}" class="text-muted" style="text-align:center;padding:20rpx;">加载中…</view>
+      <view wx:elif="{{!hasMore && list.length > 0}}" class="text-muted" style="text-align:center;padding:20rpx;">—— 没有更多了 ——</view>
+    </view>
+  </block>
+
+  <!-- ============== 我提的 ============== -->
+  <block wx:else>
+    <view wx:if="{{loading && mine.length === 0}}" class="loading text-muted">加载中…</view>
+    <view wx:elif="{{mine.length === 0}}" class="empty">
+      <view class="empty-icon">🌱</view>
+      <view class="empty-title">还没提过</view>
+      <view class="empty-desc text-muted">切到「全部建议」点 + 提一个</view>
+    </view>
+
+    <view wx:else class="feature-list">
+      <view wx:for="{{mine}}" wx:key="id" class="feature-card card">
+        <view class="feature-head">
+          <view class="feature-title">{{item.title}}</view>
+          <view class="feature-status feature-status-{{item.status}}">{{statusText(item.status)}}</view>
+        </view>
+        <view class="feature-desc">{{item.description}}</view>
+        <view class="feature-foot">
+          <view class="feature-meta text-muted">{{item.createTime}}</view>
+          <view class="vote-btn vote-btn-static">▲ {{item.voteCount}}</view>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <!-- 提交建议弹层 -->
+  <view class="modal-mask" wx:if="{{showCreate}}" bindtap="onCloseCreate">
+    <view class="modal" catchtap="">
+      <view class="modal-title">提个想法</view>
+      <view class="modal-hint text-muted">认真看每一条 · 票多的会优先做</view>
+
+      <view class="form-row">
+        <text class="form-label">标题</text>
+        <input
+          class="form-input"
+          placeholder="比如：加个深色模式"
+          placeholder-class="input-ph"
+          value="{{newTitle}}"
+          bindinput="onTitleInput"
+          maxlength="80"
+        />
+      </view>
+
+      <view class="form-row">
+        <text class="form-label">说清楚</text>
+        <textarea
+          class="form-textarea"
+          placeholder="希望有什么功能？解决什么问题？"
+          placeholder-class="input-ph"
+          value="{{newDesc}}"
+          bindinput="onDescInput"
+          maxlength="500"
+          auto-height
+        />
+        <text class="text-muted form-counter">{{newDesc.length}}/500</text>
+      </view>
+
+      <view class="modal-actions">
+        <view class="modal-btn modal-btn-ghost" bindtap="onCloseCreate">取消</view>
+        <view class="modal-btn modal-btn-primary {{!canSubmit ? 'modal-btn-disabled' : ''}}" bindtap="onSubmitCreate">提交</view>
+      </view>
+    </view>
+  </view>
+
+</view>

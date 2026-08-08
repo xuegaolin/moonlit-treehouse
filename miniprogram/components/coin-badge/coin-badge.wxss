@@ -1,0 +1,36 @@
+.coin-badge {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  background: rgba(245, 215, 110, 0.12);
+  border: 1rpx solid rgba(245, 215, 110, 0.45);
+  border-radius: 999rpx;
+  padding: 8rpx 20rpx;
+}
+
+.coin-badge:active {
+  opacity: 0.8;
+}
+
+.coin-badge.small {
+  padding: 4rpx 14rpx;
+}
+
+.moon {
+  font-size: 26rpx;
+}
+
+.coin-badge.small .moon {
+  font-size: 20rpx;
+}
+
+.count {
+  font-size: 26rpx;
+  font-weight: 600;
+  color: #F5D76E;
+  margin-left: 8rpx;
+}
+
+.coin-badge.small .count {
+  font-size: 20rpx;
+}

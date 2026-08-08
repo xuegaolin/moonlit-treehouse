@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "我的",
+  "usingComponents": {
+    "coin-badge": "/components/coin-badge/coin-badge"
+  }
+}

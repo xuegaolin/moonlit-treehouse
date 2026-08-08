@@ -1,0 +1,212 @@
+// pages/tarot/tarot.js — 塔罗盲盒（模块 C）
+// 接口：POST /tarot/daily, /tarot/three-cards, /tarot/unlock
+// 单页双 tab：每日一抽 / 三牌阵
+const config = require('../../utils/config.js')
+const request = require('../../utils/request.js')
+const coin = require('../../utils/coin.js')
+
+// 78 张牌的本地数据（接口失败时用于演示）
+const FALLBACK_DAILY = {
+  readingId: 'T-LOCAL-DAILY',
+  spreadType: 'DAILY',
+  unlocked: false,
+  unlockPrice: 990,
+  shortInterpretation: '今天的太阳照进你心里：希望就在前方。',
+  luckyColor: '#F5D76E',
+  luckyNumber: 7,
+  cards: [{
+    cardId: 19, name: '太阳', nameEn: 'The Sun', position: 'upright',
+    positionName: '正位', role: '今日指引',
+    keywords: ['希望', '热情', '成功'],
+    emoji: '☀️'
+  }]
+}
+
+const FALLBACK_THREE = {
+  readingId: 'T-LOCAL-THREE',
+  spreadType: 'THREE_CARDS',
+  unlocked: false,
+  unlockPrice: 990,
+  shortInterpretation: '从「愚者」走来，经过「命运之轮」，走向「太阳」。',
+  luckyColor: '#6B5CE7',
+  luckyNumber: 3,
+  cards: [
+    { cardId: 0, name: '愚者', nameEn: 'The Fool', position: 'upright', positionName: '正位', role: '过去', keywords: ['新开始', '自由'], emoji: '🃏' },
+    { cardId: 10, name: '命运之轮', nameEn: 'Wheel of Fortune', position: 'reversed', positionName: '逆位', role: '现在', keywords: ['厄运', '停滞'], emoji: '🎡' },
+    { cardId: 19, name: '太阳', nameEn: 'The Sun', position: 'upright', positionName: '正位', role: '未来', keywords: ['希望', '成功'], emoji: '☀️' }
+  ]
+}
+
+const FALLBACK_FULL = {
+  fullInterpretation:
+    '今天的牌指向『希望』，意味着你心里那个隐隐的光，正在变成具体的形状。\n\n过去：你已经走过了很长的路，回头看会发现那些辛苦不是白费的。\n\n现在：你正处在一个转折的边缘，外部环境开始变得对你有利。\n\n未来：接下来 7 天会有让你欣慰的小事发生。\n\n建议：把注意力放在你『想要』的事上，而不是你『担心』的事上。',
+  advice: [
+    '深呼吸 3 次，给情绪一个落点',
+    '今晚早点睡，明天再想',
+    '找个朋友聊聊天，不必是 TA'
+  ],
+  songUrl: null
+}
+
+Page({
+  data: {
+    activeTab: 'daily',     // 'daily' | 'three'
+    drawing: false,         // 抽牌中
+    reading: null,          // 当前占卜结果
+    question: '',           // 三牌阵问题
+    coinBalance: 0,
+    unlocking: false,
+    flipped: false,         // 牌是否已翻开（动效）
+    cardAnimIndex: -1,      // 当前翻开的牌下标
+
+    // 价格文案：WXML 不支持方法调用，必须在 JS 预算
+    unlockPriceText: '9.90',
+    unlockBtnText: '解锁完整解读 · ¥9.90',
+    threeCardPriceText: '9.90'
+  },
+
+  onLoad: function () {
+    // 检查今天是否已抽过
+    this.checkToday()
+  },
+
+  onShow: function () {
+    const that = this
+    coin.syncWallet().then(function (wallet) {
+      that.setData({ coinBalance: wallet.balance })
+    })
+  },
+
+  // ====== Tab 切换 ======
+  switchTab: function (e) {
+    const tab = e.currentTarget.dataset.tab
+    this.setData({ activeTab: tab, reading: null, question: '', flipped: false, unlockPriceText: '9.90', unlockBtnText: '解锁完整解读 · ¥9.90' })
+    if (tab === 'daily') {
+      this.checkToday()
+    }
+  },
+
+  // ====== 每日一抽 ======
+  checkToday: function () {
+    const that = this
+    this.setData({ drawing: true })
+
+    request.post(config.apiPaths.tarotDaily, {}, { quiet: true })
+      .then(function (data) {
+        that.applyReading(data, { drawing: false, flipped: true })
+      })
+      .catch(function (err) {
+        console.warn('今日一抽接口失败，本地兜底：', err)
+        // 区分"今天已抽"和"网络失败"
+        if (err && err.code === 42901) {
+          wx.showToast({ title: '今天已经抽过啦', icon: 'none' })
+        }
+        that.applyReading(FALLBACK_DAILY, { drawing: false, flipped: true })
+      })
+  },
+
+  onDrawDaily: function () {
+    this.checkToday()
+  },
+
+  // ====== 三牌阵 ======
+  onQuestionInput: function (e) {
+    this.setData({ question: e.detail.value })
+  },
+
+  onDrawThree: function () {
+    const that = this
+    this.setData({ drawing: true, reading: null, flipped: false })
+
+    const payload = this.data.question.trim() ? { question: this.data.question.trim() } : {}
+    request.post(config.apiPaths.tarotThreeCards, payload, { quiet: true })
+      .then(function (data) {
+        // 翻牌动效：依次翻
+        that.applyReading(data, { drawing: false })
+        that.flipCardsOneByOne(data.cards.length)
+      })
+      .catch(function (err) {
+        console.warn('三牌阵接口失败，本地兜底：', err)
+        that.applyReading(FALLBACK_THREE, { drawing: false })
+        that.flipCardsOneByOne(3)
+      })
+  },
+
+  // 翻牌动画：依次翻开每张
+  flipCardsOneByOne: function (total) {
+    const that = this
+    let i = 0
+    const interval = setInterval(function () {
+      if (i >= total) {
+        clearInterval(interval)
+        that.setData({ flipped: true })
+        return
+      }
+      that.setData({ cardAnimIndex: i })
+      i++
+    }, 350)
+  },
+
+  // ====== 解锁 ======
+  onUnlock: function () {
+    const that = this
+    if (this.data.unlocking || !this.data.reading || this.data.reading.unlocked) return
+    this.setData({ unlocking: true })
+
+    request.post(config.apiPaths.tarotUnlock, {
+      readingId: this.data.reading.readingId,
+      orderId: 'MOCK-' + Date.now()
+    }, { quiet: true })
+      .then(function (data) {
+        // 合并数据
+        const merged = Object.assign({}, that.data.reading, data, { unlocked: true })
+        that.applyReading(merged, { unlocking: false })
+        wx.showToast({ title: '解读已解锁', icon: 'none' })
+      })
+      .catch(function (err) {
+        console.warn('解锁接口失败，本地兜底：', err)
+        const merged = Object.assign({}, that.data.reading, FALLBACK_FULL, { unlocked: true })
+        that.applyReading(merged, { unlocking: false })
+        wx.showToast({ title: '解读已解锁（本地）', icon: 'none' })
+      })
+  },
+
+  // ====== 分享 ======
+  onShare: function () {
+    const r = this.data.reading
+    if (!r || !r.cards || r.cards.length === 0) {
+      wx.showToast({ title: '还没抽牌', icon: 'none' })
+      return
+    }
+    const card = r.cards[0]
+    return {
+      title: '我抽到了「' + card.name + '」' + card.positionName + ' ✨',
+      path: '/pages/tarot/tarot'
+    }
+  },
+
+  onShareAppMessage: function () {
+    return this.onShare()
+  },
+
+  // 工具
+  /**
+   * 统一写 reading：同时算好 WXML 需要的价格文案
+   * （WXML 不支持 {{formatPrice(x)}} 这类方法调用，会静默渲染为空）
+   */
+  applyReading: function (reading, extra) {
+    var priceFen = (reading && reading.unlockPrice) || 990
+    var priceText = this.formatPrice(priceFen)
+    var patch = {
+      reading: reading,
+      unlockPriceText: priceText,
+      unlockBtnText: '解锁完整解读 · ¥' + priceText
+    }
+    if (extra) Object.assign(patch, extra)
+    this.setData(patch)
+  },
+
+  formatPrice: function (fen) {
+    return (fen / 100).toFixed(1)
+  }
+})

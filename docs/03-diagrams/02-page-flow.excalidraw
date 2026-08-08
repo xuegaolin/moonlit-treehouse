@@ -1,0 +1,506 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "openclaw/diagram-maker",
+  "elements": [
+    {
+      "type": "text", "id": "title", "x": 475, "y": 20, "width": 330, "height": 35,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": null, "seed": 300001, "version": 1,
+      "isDeleted": false, "boundElements": [],
+      "text": "今夜树屋 · 核心页面流程", "originalText": "今夜树屋 · 核心页面流程",
+      "fontSize": 28, "fontFamily": 1, "textAlign": "center", "verticalAlign": "top"
+    },
+
+    {
+      "type": "text", "id": "titleA", "x": 160, "y": 80, "width": 200, "height": 28,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": null, "seed": 300002, "version": 1,
+      "isDeleted": false, "boundElements": [],
+      "text": "① 新用户首次进入", "originalText": "① 新用户首次进入",
+      "fontSize": 22, "fontFamily": 1, "textAlign": "center", "verticalAlign": "top"
+    },
+    {
+      "type": "text", "id": "titleB", "x": 593, "y": 80, "width": 214, "height": 28,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": null, "seed": 300003, "version": 1,
+      "isDeleted": false, "boundElements": [],
+      "text": "② 摆烂许可证 (MVP)", "originalText": "② 摆烂许可证 (MVP)",
+      "fontSize": 22, "fontFamily": 1, "textAlign": "center", "verticalAlign": "top"
+    },
+    {
+      "type": "text", "id": "titleC", "x": 1052, "y": 80, "width": 176, "height": 28,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": null, "seed": 300004, "version": 1,
+      "isDeleted": false, "boundElements": [],
+      "text": "③ 通用付费流程", "originalText": "③ 通用付费流程",
+      "fontSize": 22, "fontFamily": 1, "textAlign": "center", "verticalAlign": "top"
+    },
+
+    {
+      "type": "rectangle", "id": "a1", "x": 120, "y": 140, "width": 280, "height": 64,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "#a5d8ff",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": { "type": 3 }, "seed": 300010, "version": 1,
+      "isDeleted": false, "boundElements": [{ "id": "a1_text", "type": "text" }, { "id": "arr_a1_a2", "type": "arrow" }]
+    },
+    {
+      "type": "text", "id": "a1_text", "x": 215, "y": 160, "width": 90, "height": 23,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": null, "seed": 300011, "version": 1,
+      "isDeleted": false, "boundElements": [], "containerId": "a1", "autoResize": true,
+      "text": "打开小程序", "originalText": "打开小程序",
+      "fontSize": 18, "fontFamily": 1, "textAlign": "center", "verticalAlign": "middle"
+    },
+    {
+      "type": "rectangle", "id": "a2", "x": 120, "y": 230, "width": 280, "height": 64,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "#a5d8ff",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": { "type": 3 }, "seed": 300012, "version": 1,
+      "isDeleted": false, "boundElements": [{ "id": "a2_text", "type": "text" }, { "id": "arr_a1_a2", "type": "arrow" }, { "id": "arr_a2_a3", "type": "arrow" }]
+    },
+    {
+      "type": "text", "id": "a2_text", "x": 175, "y": 250, "width": 170, "height": 23,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": null, "seed": 300013, "version": 1,
+      "isDeleted": false, "boundElements": [], "containerId": "a2", "autoResize": true,
+      "text": "启动页 · Logo + Slogan", "originalText": "启动页 · Logo + Slogan",
+      "fontSize": 18, "fontFamily": 1, "textAlign": "center", "verticalAlign": "middle"
+    },
+    {
+      "type": "rectangle", "id": "a3", "x": 120, "y": 320, "width": 280, "height": 64,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "#d0bfff",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": { "type": 3 }, "seed": 300014, "version": 1,
+      "isDeleted": false, "boundElements": [{ "id": "a3_text", "type": "text" }, { "id": "arr_a2_a3", "type": "arrow" }, { "id": "arr_a3_a4", "type": "arrow" }]
+    },
+    {
+      "type": "text", "id": "a3_text", "x": 162, "y": 340, "width": 196, "height": 23,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": null, "seed": 300015, "version": 1,
+      "isDeleted": false, "boundElements": [], "containerId": "a3", "autoResize": true,
+      "text": "wx.login 静默登录换 token", "originalText": "wx.login 静默登录换 token",
+      "fontSize": 18, "fontFamily": 1, "textAlign": "center", "verticalAlign": "middle"
+    },
+    {
+      "type": "rectangle", "id": "a4", "x": 120, "y": 410, "width": 280, "height": 64,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "#d0bfff",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": { "type": 3 }, "seed": 300016, "version": 1,
+      "isDeleted": false, "boundElements": [{ "id": "a4_text", "type": "text" }, { "id": "arr_a3_a4", "type": "arrow" }, { "id": "arr_a4_a5", "type": "arrow" }]
+    },
+    {
+      "type": "text", "id": "a4_text", "x": 170, "y": 430, "width": 180, "height": 23,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": null, "seed": 300017, "version": 1,
+      "isDeleted": false, "boundElements": [], "containerId": "a4", "autoResize": true,
+      "text": "首页 · 今日心情选择", "originalText": "首页 · 今日心情选择",
+      "fontSize": 18, "fontFamily": 1, "textAlign": "center", "verticalAlign": "middle"
+    },
+    {
+      "type": "rectangle", "id": "a5", "x": 120, "y": 500, "width": 280, "height": 64,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "#d0bfff",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": { "type": 3 }, "seed": 300018, "version": 1,
+      "isDeleted": false, "boundElements": [{ "id": "a5_text", "type": "text" }, { "id": "arr_a4_a5", "type": "arrow" }, { "id": "arr_a5_b1", "type": "arrow" }]
+    },
+    {
+      "type": "text", "id": "a5_text", "x": 152, "y": 520, "width": 216, "height": 23,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": null, "seed": 300019, "version": 1,
+      "isDeleted": false, "boundElements": [], "containerId": "a5", "autoResize": true,
+      "text": "个性化推荐 · 点模块卡片", "originalText": "个性化推荐 · 点模块卡片",
+      "fontSize": 18, "fontFamily": 1, "textAlign": "center", "verticalAlign": "middle"
+    },
+
+    {
+      "type": "rectangle", "id": "b1", "x": 560, "y": 140, "width": 280, "height": 64,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "#b2f2bb",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": { "type": 3 }, "seed": 300020, "version": 1,
+      "isDeleted": false, "boundElements": [{ "id": "b1_text", "type": "text" }, { "id": "arr_a5_b1", "type": "arrow" }, { "id": "arr_b1_b2", "type": "arrow" }]
+    },
+    {
+      "type": "text", "id": "b1_text", "x": 601, "y": 160, "width": 198, "height": 23,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": null, "seed": 300021, "version": 1,
+      "isDeleted": false, "boundElements": [], "containerId": "b1", "autoResize": true,
+      "text": "摆烂首页 · 今日未领取", "originalText": "摆烂首页 · 今日未领取",
+      "fontSize": 18, "fontFamily": 1, "textAlign": "center", "verticalAlign": "middle"
+    },
+    {
+      "type": "rectangle", "id": "b2", "x": 560, "y": 230, "width": 280, "height": 64,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "#b2f2bb",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": { "type": 3 }, "seed": 300022, "version": 1,
+      "isDeleted": false, "boundElements": [{ "id": "b2_text", "type": "text" }, { "id": "arr_b1_b2", "type": "arrow" }, { "id": "arr_b2_b3", "type": "arrow" }]
+    },
+    {
+      "type": "text", "id": "b2_text", "x": 620, "y": 250, "width": 160, "height": 23,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": null, "seed": 300023, "version": 1,
+      "isDeleted": false, "boundElements": [], "containerId": "b2", "autoResize": true,
+      "text": "点击「一键摆烂」", "originalText": "点击「一键摆烂」",
+      "fontSize": 18, "fontFamily": 1, "textAlign": "center", "verticalAlign": "middle"
+    },
+    {
+      "type": "rectangle", "id": "b3", "x": 560, "y": 320, "width": 280, "height": 64,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "#b2f2bb",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": { "type": 3 }, "seed": 300024, "version": 1,
+      "isDeleted": false, "boundElements": [{ "id": "b3_text", "type": "text" }, { "id": "arr_b2_b3", "type": "arrow" }, { "id": "arr_b3_b4", "type": "arrow" }]
+    },
+    {
+      "type": "text", "id": "b3_text", "x": 655, "y": 340, "width": 90, "height": 23,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": null, "seed": 300025, "version": 1,
+      "isDeleted": false, "boundElements": [], "containerId": "b3", "autoResize": true,
+      "text": "选摆烂类型", "originalText": "选摆烂类型",
+      "fontSize": 18, "fontFamily": 1, "textAlign": "center", "verticalAlign": "middle"
+    },
+    {
+      "type": "rectangle", "id": "b4", "x": 560, "y": 410, "width": 280, "height": 64,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "#fff3bf",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": { "type": 3 }, "seed": 300026, "version": 1,
+      "isDeleted": false, "boundElements": [{ "id": "b4_text", "type": "text" }, { "id": "arr_b3_b4", "type": "arrow" }, { "id": "arr_b4_b5", "type": "arrow" }, { "id": "arr_b4_c1", "type": "arrow" }]
+    },
+    {
+      "type": "text", "id": "b4_text", "x": 598, "y": 430, "width": 204, "height": 23,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": null, "seed": 300027, "version": 1,
+      "isDeleted": false, "boundElements": [], "containerId": "b4", "autoResize": true,
+      "text": "选模板 · 免费 2 / 付费 4", "originalText": "选模板 · 免费 2 / 付费 4",
+      "fontSize": 18, "fontFamily": 1, "textAlign": "center", "verticalAlign": "middle"
+    },
+    {
+      "type": "rectangle", "id": "b5", "x": 560, "y": 500, "width": 280, "height": 64,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "#b2f2bb",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": { "type": 3 }, "seed": 300028, "version": 1,
+      "isDeleted": false, "boundElements": [{ "id": "b5_text", "type": "text" }, { "id": "arr_b4_b5", "type": "arrow" }, { "id": "arr_b5_b6", "type": "arrow" }]
+    },
+    {
+      "type": "text", "id": "b5_text", "x": 600, "y": 520, "width": 200, "height": 23,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": null, "seed": 300029, "version": 1,
+      "isDeleted": false, "boundElements": [], "containerId": "b5", "autoResize": true,
+      "text": "定制 昵称 / 编号 / AI 理由", "originalText": "定制 昵称 / 编号 / AI 理由",
+      "fontSize": 18, "fontFamily": 1, "textAlign": "center", "verticalAlign": "middle"
+    },
+    {
+      "type": "rectangle", "id": "b6", "x": 560, "y": 590, "width": 280, "height": 64,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "#d0bfff",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": { "type": 3 }, "seed": 300030, "version": 1,
+      "isDeleted": false, "boundElements": [{ "id": "b6_text", "type": "text" }, { "id": "arr_b5_b6", "type": "arrow" }, { "id": "arr_b6_b7", "type": "arrow" }]
+    },
+    {
+      "type": "text", "id": "b6_text", "x": 602, "y": 610, "width": 196, "height": 23,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": null, "seed": 300031, "version": 1,
+      "isDeleted": false, "boundElements": [], "containerId": "b6", "autoResize": true,
+      "text": "Canvas 合成许可证 PNG", "originalText": "Canvas 合成许可证 PNG",
+      "fontSize": 18, "fontFamily": 1, "textAlign": "center", "verticalAlign": "middle"
+    },
+    {
+      "type": "rectangle", "id": "b7", "x": 560, "y": 680, "width": 280, "height": 64,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "#ffd8a8",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": { "type": 3 }, "seed": 300032, "version": 1,
+      "isDeleted": false, "boundElements": [{ "id": "b7_text", "type": "text" }, { "id": "arr_b6_b7", "type": "arrow" }, { "id": "arr_b7_b8", "type": "arrow" }]
+    },
+    {
+      "type": "text", "id": "b7_text", "x": 604, "y": 700, "width": 192, "height": 23,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": null, "seed": 300033, "version": 1,
+      "isDeleted": false, "boundElements": [], "containerId": "b7", "autoResize": true,
+      "text": "保存 / 分享 · 得月光币", "originalText": "保存 / 分享 · 得月光币",
+      "fontSize": 18, "fontFamily": 1, "textAlign": "center", "verticalAlign": "middle"
+    },
+    {
+      "type": "rectangle", "id": "b8", "x": 560, "y": 770, "width": 280, "height": 64,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "#ffd8a8",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": { "type": 3 }, "seed": 300034, "version": 1,
+      "isDeleted": false, "boundElements": [{ "id": "b8_text", "type": "text" }, { "id": "arr_b7_b8", "type": "arrow" }]
+    },
+    {
+      "type": "text", "id": "b8_text", "x": 609, "y": 790, "width": 182, "height": 23,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": null, "seed": 300035, "version": 1,
+      "isDeleted": false, "boundElements": [], "containerId": "b8", "autoResize": true,
+      "text": "连续 7 天 · 勋章成就", "originalText": "连续 7 天 · 勋章成就",
+      "fontSize": 18, "fontFamily": 1, "textAlign": "center", "verticalAlign": "middle"
+    },
+
+    {
+      "type": "rectangle", "id": "c1", "x": 1000, "y": 140, "width": 280, "height": 64,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "#ffd8a8",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": { "type": 3 }, "seed": 300040, "version": 1,
+      "isDeleted": false, "boundElements": [{ "id": "c1_text", "type": "text" }, { "id": "arr_b4_c1", "type": "arrow" }, { "id": "arr_c1_c2", "type": "arrow" }]
+    },
+    {
+      "type": "text", "id": "c1_text", "x": 1077, "y": 160, "width": 126, "height": 23,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": null, "seed": 300041, "version": 1,
+      "isDeleted": false, "boundElements": [], "containerId": "c1", "autoResize": true,
+      "text": "任意付费点触发", "originalText": "任意付费点触发",
+      "fontSize": 18, "fontFamily": 1, "textAlign": "center", "verticalAlign": "middle"
+    },
+    {
+      "type": "rectangle", "id": "c2", "x": 1000, "y": 230, "width": 280, "height": 64,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "#ffd8a8",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": { "type": 3 }, "seed": 300042, "version": 1,
+      "isDeleted": false, "boundElements": [{ "id": "c2_text", "type": "text" }, { "id": "arr_c1_c2", "type": "arrow" }, { "id": "arr_c2_c3", "type": "arrow" }]
+    },
+    {
+      "type": "text", "id": "c2_text", "x": 1012, "y": 250, "width": 256, "height": 23,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": null, "seed": 300043, "version": 1,
+      "isDeleted": false, "boundElements": [], "containerId": "c2", "autoResize": true,
+      "text": "确认弹窗 · 微信 / 月光币 / 会员", "originalText": "确认弹窗 · 微信 / 月光币 / 会员",
+      "fontSize": 18, "fontFamily": 1, "textAlign": "center", "verticalAlign": "middle"
+    },
+    {
+      "type": "rectangle", "id": "c3", "x": 1000, "y": 320, "width": 280, "height": 64,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "#ffd8a8",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": { "type": 3 }, "seed": 300044, "version": 1,
+      "isDeleted": false, "boundElements": [{ "id": "c3_text", "type": "text" }, { "id": "arr_c2_c3", "type": "arrow" }, { "id": "arr_c3_c4", "type": "arrow" }]
+    },
+    {
+      "type": "text", "id": "c3_text", "x": 1065, "y": 340, "width": 150, "height": 23,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": null, "seed": 300045, "version": 1,
+      "isDeleted": false, "boundElements": [], "containerId": "c3", "autoResize": true,
+      "text": "wx.requestPayment", "originalText": "wx.requestPayment",
+      "fontSize": 18, "fontFamily": 1, "textAlign": "center", "verticalAlign": "middle"
+    },
+    {
+      "type": "rectangle", "id": "c4", "x": 1000, "y": 410, "width": 280, "height": 64,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "#b2f2bb",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": { "type": 3 }, "seed": 300046, "version": 1,
+      "isDeleted": false, "boundElements": [{ "id": "c4_text", "type": "text" }, { "id": "arr_c3_c4", "type": "arrow" }]
+    },
+    {
+      "type": "text", "id": "c4_text", "x": 1032, "y": 430, "width": 216, "height": 23,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": null, "seed": 300047, "version": 1,
+      "isDeleted": false, "boundElements": [], "containerId": "c4", "autoResize": true,
+      "text": "发放权益 · 订阅消息通知", "originalText": "发放权益 · 订阅消息通知",
+      "fontSize": 18, "fontFamily": 1, "textAlign": "center", "verticalAlign": "middle"
+    },
+
+    {
+      "type": "arrow", "id": "arr_a1_a2", "x": 260, "y": 204, "width": 0, "height": 26,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid",
+      "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100,
+      "groupIds": [], "roundness": { "type": 2 }, "seed": 300050, "version": 1, "isDeleted": false, "boundElements": [],
+      "points": [[0, 0], [0, 26]], "lastCommittedPoint": null,
+      "startBinding": { "elementId": "a1", "fixedPoint": [0.5, 1] },
+      "endBinding": { "elementId": "a2", "fixedPoint": [0.5, 0] },
+      "startArrowhead": null, "endArrowhead": "arrow"
+    },
+    {
+      "type": "arrow", "id": "arr_a2_a3", "x": 260, "y": 294, "width": 0, "height": 26,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid",
+      "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100,
+      "groupIds": [], "roundness": { "type": 2 }, "seed": 300051, "version": 1, "isDeleted": false, "boundElements": [],
+      "points": [[0, 0], [0, 26]], "lastCommittedPoint": null,
+      "startBinding": { "elementId": "a2", "fixedPoint": [0.5, 1] },
+      "endBinding": { "elementId": "a3", "fixedPoint": [0.5, 0] },
+      "startArrowhead": null, "endArrowhead": "arrow"
+    },
+    {
+      "type": "arrow", "id": "arr_a3_a4", "x": 260, "y": 384, "width": 0, "height": 26,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid",
+      "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100,
+      "groupIds": [], "roundness": { "type": 2 }, "seed": 300052, "version": 1, "isDeleted": false, "boundElements": [],
+      "points": [[0, 0], [0, 26]], "lastCommittedPoint": null,
+      "startBinding": { "elementId": "a3", "fixedPoint": [0.5, 1] },
+      "endBinding": { "elementId": "a4", "fixedPoint": [0.5, 0] },
+      "startArrowhead": null, "endArrowhead": "arrow"
+    },
+    {
+      "type": "arrow", "id": "arr_a4_a5", "x": 260, "y": 474, "width": 0, "height": 26,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid",
+      "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100,
+      "groupIds": [], "roundness": { "type": 2 }, "seed": 300053, "version": 1, "isDeleted": false, "boundElements": [],
+      "points": [[0, 0], [0, 26]], "lastCommittedPoint": null,
+      "startBinding": { "elementId": "a4", "fixedPoint": [0.5, 1] },
+      "endBinding": { "elementId": "a5", "fixedPoint": [0.5, 0] },
+      "startArrowhead": null, "endArrowhead": "arrow"
+    },
+    {
+      "type": "arrow", "id": "arr_b1_b2", "x": 700, "y": 204, "width": 0, "height": 26,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid",
+      "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100,
+      "groupIds": [], "roundness": { "type": 2 }, "seed": 300054, "version": 1, "isDeleted": false, "boundElements": [],
+      "points": [[0, 0], [0, 26]], "lastCommittedPoint": null,
+      "startBinding": { "elementId": "b1", "fixedPoint": [0.5, 1] },
+      "endBinding": { "elementId": "b2", "fixedPoint": [0.5, 0] },
+      "startArrowhead": null, "endArrowhead": "arrow"
+    },
+    {
+      "type": "arrow", "id": "arr_b2_b3", "x": 700, "y": 294, "width": 0, "height": 26,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid",
+      "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100,
+      "groupIds": [], "roundness": { "type": 2 }, "seed": 300055, "version": 1, "isDeleted": false, "boundElements": [],
+      "points": [[0, 0], [0, 26]], "lastCommittedPoint": null,
+      "startBinding": { "elementId": "b2", "fixedPoint": [0.5, 1] },
+      "endBinding": { "elementId": "b3", "fixedPoint": [0.5, 0] },
+      "startArrowhead": null, "endArrowhead": "arrow"
+    },
+    {
+      "type": "arrow", "id": "arr_b3_b4", "x": 700, "y": 384, "width": 0, "height": 26,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid",
+      "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100,
+      "groupIds": [], "roundness": { "type": 2 }, "seed": 300056, "version": 1, "isDeleted": false, "boundElements": [],
+      "points": [[0, 0], [0, 26]], "lastCommittedPoint": null,
+      "startBinding": { "elementId": "b3", "fixedPoint": [0.5, 1] },
+      "endBinding": { "elementId": "b4", "fixedPoint": [0.5, 0] },
+      "startArrowhead": null, "endArrowhead": "arrow"
+    },
+    {
+      "type": "arrow", "id": "arr_b4_b5", "x": 700, "y": 474, "width": 0, "height": 26,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid",
+      "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100,
+      "groupIds": [], "roundness": { "type": 2 }, "seed": 300057, "version": 1, "isDeleted": false, "boundElements": [],
+      "points": [[0, 0], [0, 26]], "lastCommittedPoint": null,
+      "startBinding": { "elementId": "b4", "fixedPoint": [0.5, 1] },
+      "endBinding": { "elementId": "b5", "fixedPoint": [0.5, 0] },
+      "startArrowhead": null, "endArrowhead": "arrow"
+    },
+    {
+      "type": "arrow", "id": "arr_b5_b6", "x": 700, "y": 564, "width": 0, "height": 26,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid",
+      "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100,
+      "groupIds": [], "roundness": { "type": 2 }, "seed": 300058, "version": 1, "isDeleted": false, "boundElements": [],
+      "points": [[0, 0], [0, 26]], "lastCommittedPoint": null,
+      "startBinding": { "elementId": "b5", "fixedPoint": [0.5, 1] },
+      "endBinding": { "elementId": "b6", "fixedPoint": [0.5, 0] },
+      "startArrowhead": null, "endArrowhead": "arrow"
+    },
+    {
+      "type": "arrow", "id": "arr_b6_b7", "x": 700, "y": 654, "width": 0, "height": 26,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid",
+      "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100,
+      "groupIds": [], "roundness": { "type": 2 }, "seed": 300059, "version": 1, "isDeleted": false, "boundElements": [],
+      "points": [[0, 0], [0, 26]], "lastCommittedPoint": null,
+      "startBinding": { "elementId": "b6", "fixedPoint": [0.5, 1] },
+      "endBinding": { "elementId": "b7", "fixedPoint": [0.5, 0] },
+      "startArrowhead": null, "endArrowhead": "arrow"
+    },
+    {
+      "type": "arrow", "id": "arr_b7_b8", "x": 700, "y": 744, "width": 0, "height": 26,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid",
+      "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100,
+      "groupIds": [], "roundness": { "type": 2 }, "seed": 300060, "version": 1, "isDeleted": false, "boundElements": [],
+      "points": [[0, 0], [0, 26]], "lastCommittedPoint": null,
+      "startBinding": { "elementId": "b7", "fixedPoint": [0.5, 1] },
+      "endBinding": { "elementId": "b8", "fixedPoint": [0.5, 0] },
+      "startArrowhead": null, "endArrowhead": "arrow"
+    },
+    {
+      "type": "arrow", "id": "arr_c1_c2", "x": 1140, "y": 204, "width": 0, "height": 26,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid",
+      "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100,
+      "groupIds": [], "roundness": { "type": 2 }, "seed": 300061, "version": 1, "isDeleted": false, "boundElements": [],
+      "points": [[0, 0], [0, 26]], "lastCommittedPoint": null,
+      "startBinding": { "elementId": "c1", "fixedPoint": [0.5, 1] },
+      "endBinding": { "elementId": "c2", "fixedPoint": [0.5, 0] },
+      "startArrowhead": null, "endArrowhead": "arrow"
+    },
+    {
+      "type": "arrow", "id": "arr_c2_c3", "x": 1140, "y": 294, "width": 0, "height": 26,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid",
+      "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100,
+      "groupIds": [], "roundness": { "type": 2 }, "seed": 300062, "version": 1, "isDeleted": false, "boundElements": [],
+      "points": [[0, 0], [0, 26]], "lastCommittedPoint": null,
+      "startBinding": { "elementId": "c2", "fixedPoint": [0.5, 1] },
+      "endBinding": { "elementId": "c3", "fixedPoint": [0.5, 0] },
+      "startArrowhead": null, "endArrowhead": "arrow"
+    },
+    {
+      "type": "arrow", "id": "arr_c3_c4", "x": 1140, "y": 384, "width": 0, "height": 26,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid",
+      "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100,
+      "groupIds": [], "roundness": { "type": 2 }, "seed": 300063, "version": 1, "isDeleted": false, "boundElements": [],
+      "points": [[0, 0], [0, 26]], "lastCommittedPoint": null,
+      "startBinding": { "elementId": "c3", "fixedPoint": [0.5, 1] },
+      "endBinding": { "elementId": "c4", "fixedPoint": [0.5, 0] },
+      "startArrowhead": null, "endArrowhead": "arrow"
+    },
+
+    {
+      "type": "arrow", "id": "arr_a5_b1", "x": 400, "y": 532, "width": 160, "height": 360,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid",
+      "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100,
+      "groupIds": [], "roundness": { "type": 2 }, "seed": 300064, "version": 1, "isDeleted": false, "boundElements": [],
+      "points": [[0, 0], [80, 0], [80, -360], [160, -360]], "lastCommittedPoint": null,
+      "startBinding": { "elementId": "a5", "fixedPoint": [1, 0.5] },
+      "endBinding": { "elementId": "b1", "fixedPoint": [0, 0.5] },
+      "startArrowhead": null, "endArrowhead": "arrow"
+    },
+    {
+      "type": "arrow", "id": "arr_b4_c1", "x": 840, "y": 442, "width": 160, "height": 270,
+      "angle": 0, "strokeColor": "#e8590c", "backgroundColor": "transparent", "fillStyle": "solid",
+      "strokeWidth": 2, "strokeStyle": "dashed", "roughness": 1, "opacity": 100,
+      "groupIds": [], "roundness": { "type": 2 }, "seed": 300065, "version": 1, "isDeleted": false, "boundElements": [],
+      "points": [[0, 0], [80, 0], [80, -270], [160, -270]], "lastCommittedPoint": null,
+      "startBinding": { "elementId": "b4", "fixedPoint": [1, 0.5] },
+      "endBinding": { "elementId": "c1", "fixedPoint": [0, 0.5] },
+      "startArrowhead": null, "endArrowhead": "arrow"
+    },
+
+    {
+      "type": "text", "id": "note1", "x": 120, "y": 880, "width": 420, "height": 20,
+      "angle": 0, "strokeColor": "#868e96", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": null, "seed": 300070, "version": 1,
+      "isDeleted": false, "boundElements": [],
+      "text": "色例：绿 = MVP 核心链路 · 紫 = 系统/推荐 · 橙 = 商业化 · 黄 = 付费决策点",
+      "originalText": "色例：绿 = MVP 核心链路 · 紫 = 系统/推荐 · 橙 = 商业化 · 黄 = 付费决策点",
+      "fontSize": 16, "fontFamily": 1, "textAlign": "left", "verticalAlign": "top"
+    },
+    {
+      "type": "text", "id": "note2", "x": 560, "y": 880, "width": 520, "height": 20,
+      "angle": 0, "strokeColor": "#868e96", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": null, "seed": 300071, "version": 1,
+      "isDeleted": false, "boundElements": [],
+      "text": "分享回流：好友点分享卡片 → 树屋首页 +「我也要一张」CTA（拉新闭环）",
+      "originalText": "分享回流：好友点分享卡片 → 树屋首页 +「我也要一张」CTA（拉新闭环）",
+      "fontSize": 16, "fontFamily": 1, "textAlign": "left", "verticalAlign": "top"
+    }
+  ],
+  "appState": {
+    "viewBackgroundColor": "#ffffff",
+    "gridSize": null
+  }
+}

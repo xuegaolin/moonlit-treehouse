@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "许愿池",
+  "usingComponents": {
+    "coin-badge": "/components/coin-badge/coin-badge"
+  }
+}

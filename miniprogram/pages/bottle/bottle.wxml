@@ -1,0 +1,123 @@
+<view class="page">
+
+  <!-- Tab 栏 -->
+  <view class="tabbar">
+    <view class="tab {{activeTab === 'feed' ? 'tab-active' : ''}}" data-tab="feed" bindtap="switchTab">
+      <text class="tab-emoji">🌊</text>
+      <text class="tab-label">信息流</text>
+    </view>
+    <view class="tab {{activeTab === 'publish' ? 'tab-active' : ''}}" data-tab="publish" bindtap="switchTab">
+      <text class="tab-emoji">📮</text>
+      <text class="tab-label">投个瓶子</text>
+    </view>
+  </view>
+
+  <!-- ============== 信息流 Tab ============== -->
+  <block wx:if="{{activeTab === 'feed'}}">
+    <!-- 排序 -->
+    <view class="sort-row">
+      <view class="sort-btn {{sort === 'latest' ? 'sort-active' : ''}}" data-sort="latest" bindtap="onSwitchSort">最新</view>
+      <view class="sort-btn {{sort === 'hot' ? 'sort-active' : ''}}" data-sort="hot" bindtap="onSwitchSort">最暖</view>
+    </view>
+
+    <view wx:if="{{loading && feedList.length === 0}}" class="loading text-muted">打捞中…</view>
+
+    <view wx:elif="{{feedList.length === 0}}" class="empty">
+      <view class="empty-icon">🌊</view>
+      <view class="empty-title">海面很安静</view>
+      <view class="empty-desc text-muted">没有人投瓶子，做第一个？</view>
+    </view>
+
+    <view wx:else class="bottle-list">
+      <view
+        wx:for="{{feedList}}"
+        wx:key="bottleId"
+        class="bottle card"
+      >
+        <view class="bottle-head">
+          <view class="bottle-avatar">🌙</view>
+          <view class="bottle-meta">
+            <view class="bottle-anonymous">{{item.anonymousId}}</view>
+            <view class="bottle-time text-muted">{{item.timeHint}}</view>
+          </view>
+        </view>
+        <view class="bottle-content">{{item.content}}</view>
+        <view wx:if="{{item.tags && item.tags.length > 0}}" class="bottle-tags">
+          <text wx:for="{{item.tags}}" wx:key="*this" wx:for-item="t" class="tag">#{{t}}</text>
+        </view>
+        <view class="bottle-foot">
+          <view class="warm-stat text-muted">💗 {{item.warmCount || 0}} 人温暖过</view>
+
+          <!-- 三态按钮：状态在渲染时就定，避免用户点了才被拒 -->
+          <!-- 1) 自己的瓶子：不可温暖，明确说明原因 -->
+          <view wx:if="{{item.isMine}}" class="warm-btn warm-btn-disabled">你的心事</view>
+          <!-- 2) 已温暖过：显示已完成态 -->
+          <view wx:elif="{{item.warmed}}" class="warm-btn warm-btn-done">已温暖 ✓</view>
+          <!-- 3) 可温暖 -->
+          <view wx:else class="warm-btn" data-id="{{item.bottleId}}" bindtap="onWarm">温暖 ›</view>
+        </view>
+      </view>
+
+      <view wx:if="{{loading}}" class="text-muted" style="text-align:center;padding:20rpx;">加载中…</view>
+      <view wx:elif="{{!hasMore && feedList.length > 0}}" class="text-muted" style="text-align:center;padding:20rpx;">—— 没有更多了 ——</view>
+    </view>
+  </block>
+
+  <!-- ============== 发布 Tab ============== -->
+  <block wx:else>
+    <view class="card">
+      <view class="section-title">说点什么</view>
+      <textarea
+        class="bottle-area"
+        placeholder="深夜的心事，匿名丢进海里…"
+        placeholder-class="input-ph"
+        value="{{newContent}}"
+        bindinput="onNewContentInput"
+        maxlength="500"
+        auto-height
+      />
+      <view class="text-muted" style="font-size: 22rpx; text-align: right;">{{newContent.length}}/500</view>
+
+      <view class="section-title" style="margin-top: 28rpx;">加个标签（最多 3 个）</view>
+      <view class="tag-list">
+        <view
+          wx:for="{{tagOptions}}"
+          wx:key="name"
+          class="tag-chip {{item.active ? 'tag-chip-active' : ''}}"
+          data-tag="{{item.name}}"
+          bindtap="onToggleTag"
+        >{{item.name}}</view>
+      </view>
+    </view>
+
+    <view class="submit-area">
+      <button class="btn-primary submit-btn" bindtap="onSubmit">把心事丢进海里 🌊</button>
+      <view class="text-muted" style="text-align: center; font-size: 22rpx; margin-top: 16rpx;">
+        完全匿名 · 没有人知道是你
+      </view>
+    </view>
+  </block>
+
+  <!-- 温暖弹层 -->
+  <view wx:if="{{warmTarget}}" class="warm-mask" bindtap="closeWarm">
+    <view class="warm-panel" catchtap="">
+      <view class="warm-title">送一份温暖</view>
+      <view class="warm-gifts">
+        <view
+          wx:for="{{[{code:'hug',label:'抱抱',cost:0,emoji:'🤗'},{code:'candy',label:'一颗糖',cost:6,emoji:'🍬'},{code:'candle',label:'一盏烛',cost:8,emoji:'🕯'}]}}"
+          wx:key="code"
+          class="warm-gift"
+          data-gift="{{item.code}}"
+          bindtap="onChooseGift"
+        >
+          <view class="warm-emoji">{{item.emoji}}</view>
+          <view class="warm-label">{{item.label}}</view>
+          <view wx:if="{{item.cost > 0}}" class="warm-cost text-muted">{{item.cost}} 月光币</view>
+          <view wx:else class="warm-cost text-muted">免费</view>
+        </view>
+      </view>
+      <view class="warm-cancel" bindtap="closeWarm">取消</view>
+    </view>
+  </view>
+
+</view>

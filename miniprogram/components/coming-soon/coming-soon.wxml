@@ -1,0 +1,11 @@
+<view class="soon-wrap">
+  <view class="moon">🌙</view>
+  <view class="icon">{{icon}}</view>
+  <view class="title">{{title}}</view>
+  <view class="badge">模块建设中 · 敬请期待</view>
+  <view class="desc">{{desc}}</view>
+  <view class="eta" wx:if="{{eta}}">{{eta}}</view>
+
+  <view class="btn-primary btn" bindtap="notifyMe">上线提醒我</view>
+  <view class="btn-ghost btn" bindtap="goHome">回树屋逛逛</view>
+</view>

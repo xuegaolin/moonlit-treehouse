@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "塔罗盲盒",
+  "usingComponents": {
+    "coin-badge": "/components/coin-badge/coin-badge"
+  }
+}

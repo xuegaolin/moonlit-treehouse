@@ -1,0 +1,190 @@
+<view class="page">
+
+  <!-- Tab 栏 -->
+  <view class="tabbar">
+    <view class="tab {{activeTab === 'daily' ? 'tab-active' : ''}}" data-tab="daily" bindtap="switchTab">
+      <text class="tab-label">每日一抽</text>
+    </view>
+    <view class="tab {{activeTab === 'three' ? 'tab-active' : ''}}" data-tab="three" bindtap="switchTab">
+      <text class="tab-label">三牌阵</text>
+    </view>
+  </view>
+
+  <!-- ============== 每日一抽 ============== -->
+  <block wx:if="{{activeTab === 'daily'}}">
+    <view class="hero">
+      <view class="hero-icon">🔮</view>
+      <view class="hero-title">今日的牌，藏着今日的答案</view>
+      <view class="hero-desc text-muted">每天一次，看看宇宙想对你说什么</view>
+    </view>
+
+    <!-- 抽牌中状态 -->
+    <view wx:if="{{drawing}}" class="shuffling">
+      <view class="shuffle-card">🃏</view>
+      <view class="shuffle-card shuffle-card-2">🃏</view>
+      <view class="shuffle-card shuffle-card-3">🃏</view>
+      <view class="text-muted" style="margin-top: 32rpx;">牌在洗牌中…</view>
+    </view>
+
+    <!-- 抽牌结果 -->
+    <block wx:elif="{{reading && reading.cards && reading.cards.length > 0}}">
+      <view class="card-area">
+        <view class="tarot-card {{flipped ? 'tarot-card-flipped' : ''}}">
+          <view class="card-back">
+            <text class="card-back-icon">🌙</text>
+            <text class="card-back-text">MOONLIT</text>
+          </view>
+          <view class="card-front {{reading.cards[0].position === 'upright' ? 'grad-upright' : 'grad-reversed'}}">
+            <view class="card-emoji">{{reading.cards[0].emoji}}</view>
+            <view class="card-name">{{reading.cards[0].name}}</view>
+            <view class="card-name-en">{{reading.cards[0].nameEn}}</view>
+            <view class="card-position {{reading.cards[0].position === 'upright' ? 'pos-upright' : 'pos-reversed'}}">
+              {{reading.cards[0].positionName}}
+            </view>
+            <view class="card-keywords">
+              <text wx:for="{{reading.cards[0].keywords}}" wx:key="*this" class="kw">{{item}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="card card-interpretation">
+        <view class="interp-title">✦ 30 字短解读</view>
+        <view class="interp-body">{{reading.shortInterpretation}}</view>
+        <view class="lucky-row" wx:if="{{reading.luckyColor || reading.luckyNumber}}">
+          <view class="lucky-item" wx:if="{{reading.luckyColor}}">
+            <view class="lucky-label text-muted">今日幸运色</view>
+            <view class="lucky-dot" style="background: {{reading.luckyColor}};"></view>
+          </view>
+          <view class="lucky-item" wx:if="{{reading.luckyNumber}}">
+            <view class="lucky-label text-muted">幸运数字</view>
+            <view class="lucky-num">{{reading.luckyNumber}}</view>
+          </view>
+        </view>
+      </view>
+
+      <!-- 未解锁：引导解锁 -->
+      <block wx:if="{{!reading.unlocked}}">
+        <view class="unlock-area">
+          <view class="unlock-tip text-muted">200 字完整解读 + 个性化建议 + 推荐歌曲</view>
+          <button class="btn-primary unlock-btn" loading="{{unlocking}}" disabled="{{unlocking}}" bindtap="onUnlock">
+            {{unlocking ? '解锁中…' : unlockBtnText}}
+          </button>
+        </view>
+      </block>
+
+      <!-- 已解锁 -->
+      <block wx:elif="{{reading.fullInterpretation}}">
+        <view class="card card-full">
+          <view class="interp-title">✦ 200 字完整解读</view>
+          <view class="interp-body">{{reading.fullInterpretation}}</view>
+          <block wx:if="{{reading.advice && reading.advice.length}}">
+            <view class="advice-title">✦ 建议</view>
+            <view class="advice-list">
+              <view wx:for="{{reading.advice}}" wx:key="*this" class="advice-item">· {{item}}</view>
+            </view>
+          </block>
+        </view>
+        <view class="share-area">
+          <button class="btn-ghost share-btn" open-type="share">分享给朋友</button>
+        </view>
+      </block>
+    </block>
+  </block>
+
+  <!-- ============== 三牌阵 ============== -->
+  <block wx:else>
+    <view class="hero">
+      <view class="hero-icon">🃏 🃏 🃏</view>
+      <view class="hero-title">问一个问题，让牌来回答</view>
+      <view class="hero-desc text-muted">过去 · 现在 · 未来</view>
+    </view>
+
+    <!-- 未抽时显示问题输入 -->
+    <block wx:if="{{!reading}}">
+      <view class="card">
+        <view class="section-title">你的问题（可选）</view>
+        <textarea
+          class="question-area"
+          placeholder="比如：我和他还有可能吗？"
+          placeholder-class="input-ph"
+          value="{{question}}"
+          bindinput="onQuestionInput"
+          maxlength="200"
+          auto-height
+        />
+        <view class="text-muted" style="font-size: 22rpx; margin-top: 12rpx;">不写也能抽，牌会自己说</view>
+      </view>
+
+      <view class="submit-area">
+        <button class="btn-primary draw-btn" loading="{{drawing}}" disabled="{{drawing}}" bindtap="onDrawThree">
+          {{drawing ? '抽牌中…' : '开始抽牌'}}
+        </button>
+        <view class="text-muted" style="text-align: center; font-size: 22rpx; margin-top: 16rpx;">
+          三牌阵完整解读 ¥{{threeCardPriceText}} · 短解读免费
+        </view>
+      </view>
+    </block>
+
+    <!-- 抽牌中 / 抽牌后 -->
+    <block wx:elif="{{drawing}}">
+      <view class="shuffling">
+        <view class="shuffle-card">🃏</view>
+        <view class="shuffle-card shuffle-card-2">🃏</view>
+        <view class="shuffle-card shuffle-card-3">🃏</view>
+        <view class="text-muted" style="margin-top: 32rpx;">三张牌即将翻开…</view>
+      </view>
+    </block>
+
+    <block wx:elif="{{reading}}">
+      <!-- 三张牌横排 -->
+      <view class="three-cards" wx:if="{{reading.cards && reading.cards.length === 3}}">
+        <view
+          wx:for="{{reading.cards}}"
+          wx:key="role"
+          class="three-card-wrap {{cardAnimIndex >= index ? 'three-card-flipped' : ''}}"
+        >
+          <view class="three-card">
+            <view class="card-back-mini">
+              <text class="card-back-icon-mini">🌙</text>
+            </view>
+            <view class="card-front-mini {{item.position === 'upright' ? 'grad-upright' : 'grad-reversed'}}">
+              <view class="three-card-emoji">{{item.emoji}}</view>
+              <view class="three-card-name">{{item.name}}</view>
+              <view class="three-card-position {{item.position === 'upright' ? 'pos-upright' : 'pos-reversed'}}">
+                {{item.positionName}}
+              </view>
+            </view>
+          </view>
+          <view class="three-card-role">{{item.role}}</view>
+        </view>
+      </view>
+
+      <view class="card card-interpretation" wx:if="{{flipped}}">
+        <view class="interp-title">✦ 三牌阵短解读</view>
+        <view class="interp-body">{{reading.shortInterpretation}}</view>
+      </view>
+
+      <!-- 解锁按钮 -->
+      <block wx:if="{{flipped && !reading.unlocked}}">
+        <view class="unlock-area">
+          <view class="unlock-tip text-muted">问问题的答案在完整解读里 ✨</view>
+          <button class="btn-primary unlock-btn" loading="{{unlocking}}" disabled="{{unlocking}}" bindtap="onUnlock">
+            {{unlocking ? '解锁中…' : unlockBtnText}}
+          </button>
+        </view>
+      </block>
+
+      <block wx:elif="{{reading.unlocked && reading.fullInterpretation}}">
+        <view class="card card-full">
+          <view class="interp-title">✦ 你的问题 · 完整解读</view>
+          <view class="interp-body">{{reading.fullInterpretation}}</view>
+        </view>
+        <view class="share-area">
+          <button class="btn-ghost share-btn" open-type="share">分享给朋友</button>
+        </view>
+      </block>
+    </block>
+  </block>
+
+</view>

@@ -1,0 +1,4 @@
+<view class="coin-badge {{size === 'small' ? 'small' : ''}}" bindtap="onTap">
+  <text class="moon">🌙</text>
+  <text class="count">{{balance}}</text>
+</view>

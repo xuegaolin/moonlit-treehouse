@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "深夜信箱",
+  "usingComponents": {
+    "coin-badge": "/components/coin-badge/coin-badge"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "设置",
+  "navigationBarBackgroundColor": "#1F1C33",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "switch-card": "/components/switch-card/switch-card"
+  }
+}

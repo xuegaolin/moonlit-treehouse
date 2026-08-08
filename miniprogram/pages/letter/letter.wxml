@@ -1,0 +1,194 @@
+<view class="page">
+
+  <!-- Tab 栏 -->
+  <view class="tabbar">
+    <view class="tab {{activeTab === 'write' ? 'tab-active' : ''}}" data-tab="write" bindtap="switchTab">
+      <text class="tab-emoji">📮</text>
+      <text class="tab-label">写信</text>
+    </view>
+    <view class="tab {{activeTab === 'inbox' ? 'tab-active' : ''}}" data-tab="inbox" bindtap="switchTab">
+      <text class="tab-emoji">📬</text>
+      <text class="tab-label">我的信箱</text>
+    </view>
+  </view>
+
+  <!-- ============== 写信 Tab ============== -->
+  <block wx:if="{{activeTab === 'write'}}">
+    <view class="hero">
+      <view class="hero-title">今晚的你想说点啥</view>
+      <view class="hero-desc text-muted">写给未来的自己 / 现在的自己 / 错过的人 / 陌生人</view>
+    </view>
+
+    <!-- 收信人 -->
+    <view class="section">
+      <view class="section-title">收信人</view>
+      <view class="receiver-list">
+        <view
+          wx:for="{{receivers}}"
+          wx:key="code"
+          class="receiver {{selectedReceiver === item.code ? 'receiver-active' : ''}}"
+          data-code="{{item.code}}"
+          bindtap="onSelectReceiver"
+        >
+          <view class="receiver-label">{{item.label}}</view>
+          <view class="receiver-desc text-muted">{{item.desc}}</view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 信封 -->
+    <view class="section">
+      <view class="section-title">信封</view>
+      <view class="chips">
+        <view
+          wx:for="{{envelopes}}"
+          wx:key="code"
+          class="chip {{selectedEnvelope === item.code ? 'chip-active' : ''}}"
+          data-code="{{item.code}}"
+          bindtap="onSelectEnvelope"
+        >
+          <text>{{item.emoji}}</text>
+          <text style="margin-left: 6rpx;">{{item.label}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 信件内容 -->
+    <view class="section">
+      <view class="row-between">
+        <view class="section-title">写下来吧</view>
+        <view class="text-muted counter">{{content.length}}/{{contentMax}}</view>
+      </view>
+      <textarea
+        class="letter-area"
+        placeholder="把今晚的心里话说出来…"
+        placeholder-class="input-ph"
+        value="{{content}}"
+        bindinput="onContentInput"
+        maxlength="{{contentMax}}"
+        auto-height
+      />
+    </view>
+
+    <!-- 投递时间 -->
+    <view class="section" wx:if="{{selectedReceiver !== 'self_now'}}">
+      <view class="section-title">什么时候送达</view>
+      <view class="chips">
+        <view
+          wx:for="{{deliverPresets}}"
+          wx:key="label"
+          class="chip {{deliverAt === item.hours ? 'chip-active' : ''}}"
+          data-ts="{{item.hours}}"
+          bindtap="onSelectDeliver"
+        >{{item.label}}</view>
+        <view class="chip" bindtap="onPickCustomDeliver">
+          <text>🗓</text>
+          <text style="margin-left: 6rpx;">选个日期</text>
+        </view>
+      </view>
+      <view class="deliver-preview text-muted" wx:if="{{deliverAt}}">
+        将于 {{deliverAtText}} 送达
+      </view>
+      <view class="deliver-preview text-muted" wx:else>
+        默认 7 天后送达
+      </view>
+    </view>
+
+    <!-- AI 回信 -->
+    <view class="section">
+      <view class="ai-row">
+        <view class="ai-label">
+          <text class="ai-icon">🤖</text>
+          <text>让 AI 陪你聊几句</text>
+        </view>
+        <switch checked="{{aiEnabled}}" bindchange="onToggleAI" color="#6B5CE7" />
+      </view>
+      <view wx:if="{{aiEnabled}}" class="chips">
+        <view
+          wx:for="{{aiPersonas}}"
+          wx:key="code"
+          class="chip {{selectedPersona === item.code ? 'chip-active' : ''}}"
+          data-code="{{item.code}}"
+          bindtap="onSelectPersona"
+        >{{item.label}}</view>
+      </view>
+    </view>
+
+    <view class="submit-area">
+      <button class="btn-primary submit-btn" loading="{{submitting}}" disabled="{{submitting}}" bindtap="onSubmit">
+        {{submitting ? '封存中...' : '封存这封信'}}
+      </button>
+      <view class="submit-tip text-muted">内容加密保存 · 投递时通知你</view>
+    </view>
+  </block>
+
+  <!-- ============== 信箱 Tab ============== -->
+  <block wx:else>
+    <!-- 订阅消息 banner -->
+    <view wx:if="{{showSubscribeBanner}}" class="sub-banner">
+      <text class="sub-banner-emoji">🔔</text>
+      <view class="sub-banner-text">
+        你有 <text class="sub-banner-num">{{subscribedCount}}</text> 封待投信已开启到达通知
+      </view>
+    </view>
+
+    <!-- 状态过滤 -->
+    <view class="filters">
+      <view
+        wx:for="{{['ALL','PENDING','DELIVERED']}}"
+        wx:key="*this"
+        class="filter {{statusFilter === item ? 'filter-active' : ''}}"
+        data-filter="{{item}}"
+        bindtap="onFilter"
+      >
+        {{item === 'ALL' ? '全部' : item === 'PENDING' ? '待送' : '已送达'}}
+      </view>
+    </view>
+
+    <!-- 列表 -->
+    <view wx:if="{{loading}}" class="loading text-muted">正在打开信箱...</view>
+
+    <view wx:elif="{{letters.length === 0}}" class="empty">
+      <view class="empty-icon">📭</view>
+      <view class="empty-title">信箱是空的</view>
+      <view class="empty-desc text-muted">写一封信，未来的你会收到</view>
+    </view>
+
+    <view wx:else class="letter-list">
+      <view
+        wx:for="{{letters}}"
+        wx:key="letterId"
+        class="letter-item"
+        data-id="{{item.letterId}}"
+        data-status="{{item.status}}"
+        bindtap="onOpenLetter"
+        bindlongpress="onLongPressLetter"
+      >
+        <view class="letter-head">
+          <view class="letter-envelope">
+            <text wx:if="{{item.envelopeCode === 'sakura'}}">🌸</text>
+            <text wx:elif="{{item.envelopeCode === 'kraft'}}">📜</text>
+            <text wx:else>✉️</text>
+          </view>
+          <view class="letter-meta">
+            <view class="letter-id">{{item.letterId}}</view>
+            <view class="letter-receiver text-muted">
+              {{item.receiverType === 'self_future' ? '致未来的我' :
+                item.receiverType === 'self_now' ? '给现在的我' :
+                item.receiverType === 'missed_one' ? '给错过的人' : '给陌生人'}}
+            </view>
+          </view>
+          <view class="status-tag {{item.statusClass}}">{{item.statusText}}</view>
+        </view>
+        <view class="letter-summary">{{item.summary}}</view>
+        <view class="letter-foot text-muted">
+          <text>将于 {{item.deliverAtText}}</text>
+          <text wx:if="{{item.hasReply}}" class="text-gold"> · 收到回信 💌</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="hint text-muted" wx:if="{{letters.length > 0}}">点击查看详情 · 长按待送信可撤回</view>
+  </block>
+
+</view>

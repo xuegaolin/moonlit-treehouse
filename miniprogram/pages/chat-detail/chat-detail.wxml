@@ -1,0 +1,51 @@
+<view class="page" id="scroll-area">
+    <view wx:if="{{loading}}" class="loading">
+        <text>加载中...</text>
+    </view>
+
+    <view wx:else class="message-list">
+        <view wx:if="{{messages.length === 0}}" class="empty-tip">
+            <text>暂无消息，打个招呼吧~</text>
+        </view>
+
+        <view
+            wx:for="{{messages}}"
+            wx:key="id"
+            class="message-item {{item.isMe ? 'message-me' : 'message-other'}}"
+        >
+            <view wx:if="{{!item.isMe}}" class="message-avatar">
+                <text class="avatar-text">{{peerNickname ? peerNickname.charAt(0) : '匿'}}</text>
+            </view>
+
+            <view class="message-bubble">
+                <text class="message-text">{{item.content}}</text>
+                <text wx:if="{{item.sending}}" class="message-status">发送中...</text>
+            </view>
+
+            <view wx:if="{{item.isMe}}" class="message-avatar avatar-me">
+                <text class="avatar-text">我</text>
+            </view>
+        </view>
+    </view>
+
+    <view class="input-area">
+        <view class="input-box">
+            <input
+                class="input-text"
+                type="text"
+                placeholder="说点什么..."
+                value="{{inputText}}"
+                bindinput="onInput"
+                confirm-type="send"
+                bindconfirm="onSend"
+                disabled="{{sending}}"
+            />
+        </view>
+        <view
+            class="send-btn {{inputText && !sending ? 'send-btn-active' : ''}}"
+            bindtap="onSend"
+        >
+            <text>发送</text>
+        </view>
+    </view>
+</view>

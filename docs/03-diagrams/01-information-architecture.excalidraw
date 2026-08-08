@@ -1,0 +1,322 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "openclaw/diagram-maker",
+  "elements": [
+    {
+      "type": "text", "id": "title", "x": 545, "y": 35, "width": 310, "height": 40,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": null, "seed": 200001, "version": 1,
+      "isDeleted": false, "boundElements": [],
+      "text": "今夜树屋 · 信息架构", "originalText": "今夜树屋 · 信息架构",
+      "fontSize": 32, "fontFamily": 1, "textAlign": "center", "verticalAlign": "top"
+    },
+    {
+      "type": "text", "id": "subtitle", "x": 565, "y": 95, "width": 270, "height": 23,
+      "angle": 0, "strokeColor": "#868e96", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": null, "seed": 200002, "version": 1,
+      "isDeleted": false, "boundElements": [],
+      "text": "情绪超市 · 一个入口，五种解药", "originalText": "情绪超市 · 一个入口，五种解药",
+      "fontSize": 18, "fontFamily": 1, "textAlign": "center", "verticalAlign": "top"
+    },
+
+    {
+      "type": "rectangle", "id": "letter", "x": 150, "y": 160, "width": 260, "height": 170,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "#a5d8ff",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": { "type": 3 }, "seed": 200003, "version": 1,
+      "isDeleted": false, "boundElements": [{ "id": "letter_text", "type": "text" }, { "id": "arr_home_letter", "type": "arrow" }, { "id": "arr_letter_tarot", "type": "arrow" }]
+    },
+    {
+      "type": "text", "id": "letter_text", "x": 199, "y": 188, "width": 162, "height": 113,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": null, "seed": 200004, "version": 1,
+      "isDeleted": false, "boundElements": [], "containerId": "letter", "autoResize": true,
+      "text": "📮 深夜信箱\n────────\n写信 · 定时送达\nAI 人格回信\n公开信漂流",
+      "originalText": "📮 深夜信箱\n────────\n写信 · 定时送达\nAI 人格回信\n公开信漂流",
+      "fontSize": 18, "fontFamily": 1, "textAlign": "center", "verticalAlign": "middle"
+    },
+
+    {
+      "type": "rectangle", "id": "bailan", "x": 570, "y": 160, "width": 260, "height": 170,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "#a5d8ff",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": { "type": 3 }, "seed": 200005, "version": 1,
+      "isDeleted": false, "boundElements": [{ "id": "bailan_text", "type": "text" }, { "id": "arr_home_bailan", "type": "arrow" }, { "id": "arr_bailan_bottle", "type": "arrow" }]
+    },
+    {
+      "type": "text", "id": "bailan_text", "x": 610, "y": 188, "width": 180, "height": 113,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": null, "seed": 200006, "version": 1,
+      "isDeleted": false, "boundElements": [], "containerId": "bailan", "autoResize": true,
+      "text": "🪑 摆烂许可证\n────────\n一键领证 · 多模板\n证书墙 · 摆烂日历\n勋章成就体系",
+      "originalText": "🪑 摆烂许可证\n────────\n一键领证 · 多模板\n证书墙 · 摆烂日历\n勋章成就体系",
+      "fontSize": 18, "fontFamily": 1, "textAlign": "center", "verticalAlign": "middle"
+    },
+
+    {
+      "type": "rectangle", "id": "tarot", "x": 990, "y": 160, "width": 260, "height": 170,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "#a5d8ff",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": { "type": 3 }, "seed": 200007, "version": 1,
+      "isDeleted": false, "boundElements": [{ "id": "tarot_text", "type": "text" }, { "id": "arr_home_tarot", "type": "arrow" }, { "id": "arr_letter_tarot", "type": "arrow" }]
+    },
+    {
+      "type": "text", "id": "tarot_text", "x": 1030, "y": 188, "width": 180, "height": 113,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": null, "seed": 200008, "version": 1,
+      "isDeleted": false, "boundElements": [], "containerId": "tarot", "autoResize": true,
+      "text": "🔮 塔罗盲盒\n────────\n每日一牌（免费）\n三牌阵 · 情感专题\n塔罗日记 · 年度报告",
+      "originalText": "🔮 塔罗盲盒\n────────\n每日一牌（免费）\n三牌阵 · 情感专题\n塔罗日记 · 年度报告",
+      "fontSize": 18, "fontFamily": 1, "textAlign": "center", "verticalAlign": "middle"
+    },
+
+    {
+      "type": "rectangle", "id": "home", "x": 570, "y": 420, "width": 260, "height": 100,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "#d0bfff",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": { "type": 3 }, "seed": 200009, "version": 1,
+      "isDeleted": false,
+      "boundElements": [
+        { "id": "home_text", "type": "text" },
+        { "id": "arr_home_letter", "type": "arrow" }, { "id": "arr_home_bailan", "type": "arrow" },
+        { "id": "arr_home_tarot", "type": "arrow" }, { "id": "arr_home_wish", "type": "arrow" },
+        { "id": "arr_home_mine", "type": "arrow" }, { "id": "arr_home_bottle", "type": "arrow" }
+      ]
+    },
+    {
+      "type": "text", "id": "home_text", "x": 602, "y": 442, "width": 196, "height": 55,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": null, "seed": 200010, "version": 1,
+      "isDeleted": false, "boundElements": [], "containerId": "home", "autoResize": true,
+      "text": "🏠 树屋首页\n心情选择 + 模块分发",
+      "originalText": "🏠 树屋首页\n心情选择 + 模块分发",
+      "fontSize": 22, "fontFamily": 1, "textAlign": "center", "verticalAlign": "middle"
+    },
+
+    {
+      "type": "rectangle", "id": "wish", "x": 150, "y": 640, "width": 260, "height": 170,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "#a5d8ff",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": { "type": 3 }, "seed": 200011, "version": 1,
+      "isDeleted": false, "boundElements": [{ "id": "wish_text", "type": "text" }, { "id": "arr_home_wish", "type": "arrow" }]
+    },
+    {
+      "type": "text", "id": "wish_text", "x": 208, "y": 668, "width": 144, "height": 113,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": null, "seed": 200012, "version": 1,
+      "isDeleted": false, "boundElements": [], "containerId": "wish", "autoResize": true,
+      "text": "🕯 许愿池\n────────\n电子木鱼 · 上香\n许愿 · 结愿复盘\n每日签到发币",
+      "originalText": "🕯 许愿池\n────────\n电子木鱼 · 上香\n许愿 · 结愿复盘\n每日签到发币",
+      "fontSize": 18, "fontFamily": 1, "textAlign": "center", "verticalAlign": "middle"
+    },
+
+    {
+      "type": "rectangle", "id": "mine", "x": 570, "y": 640, "width": 260, "height": 170,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "#c3fae8",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": { "type": 3 }, "seed": 200013, "version": 1,
+      "isDeleted": false,
+      "boundElements": [{ "id": "mine_text", "type": "text" }, { "id": "arr_home_mine", "type": "arrow" }, { "id": "arr_mine_coin", "type": "arrow" }, { "id": "arr_mine_member", "type": "arrow" }]
+    },
+    {
+      "type": "text", "id": "mine_text", "x": 645, "y": 668, "width": 110, "height": 113,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": null, "seed": 200014, "version": 1,
+      "isDeleted": false, "boundElements": [], "containerId": "mine", "autoResize": true,
+      "text": "👤 个人中心\n────────\n月光币钱包\n会员 · 订单\n设置 · 客服",
+      "originalText": "👤 个人中心\n────────\n月光币钱包\n会员 · 订单\n设置 · 客服",
+      "fontSize": 18, "fontFamily": 1, "textAlign": "center", "verticalAlign": "middle"
+    },
+
+    {
+      "type": "rectangle", "id": "bottle", "x": 990, "y": 640, "width": 260, "height": 170,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "#a5d8ff",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": { "type": 3 }, "seed": 200015, "version": 1,
+      "isDeleted": false, "boundElements": [{ "id": "bottle_text", "type": "text" }, { "id": "arr_home_bottle", "type": "arrow" }, { "id": "arr_bailan_bottle", "type": "arrow" }]
+    },
+    {
+      "type": "text", "id": "bottle_text", "x": 1030, "y": 668, "width": 180, "height": 113,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": null, "seed": 200016, "version": 1,
+      "isDeleted": false, "boundElements": [], "containerId": "bottle", "autoResize": true,
+      "text": "💌 漂流墙\n────────\n匿名心事墙\n情绪标签 · 送温暖\n无评论（防霸凌）",
+      "originalText": "💌 漂流墙\n────────\n匿名心事墙\n情绪标签 · 送温暖\n无评论（防霸凌）",
+      "fontSize": 18, "fontFamily": 1, "textAlign": "center", "verticalAlign": "middle"
+    },
+
+    {
+      "type": "rectangle", "id": "coin", "x": 330, "y": 900, "width": 280, "height": 110,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "#ffd8a8",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": { "type": 3 }, "seed": 200017, "version": 1,
+      "isDeleted": false, "boundElements": [{ "id": "coin_text", "type": "text" }, { "id": "arr_mine_coin", "type": "arrow" }]
+    },
+    {
+      "type": "text", "id": "coin_text", "x": 370, "y": 921, "width": 200, "height": 68,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": null, "seed": 200018, "version": 1,
+      "isDeleted": false, "boundElements": [], "containerId": "coin", "autoResize": true,
+      "text": "🌙 月光币体系\n得币：签到 / 领证 / 木鱼\n消耗：抵扣 · 兑周边",
+      "originalText": "🌙 月光币体系\n得币：签到 / 领证 / 木鱼\n消耗：抵扣 · 兑周边",
+      "fontSize": 18, "fontFamily": 1, "textAlign": "center", "verticalAlign": "middle"
+    },
+
+    {
+      "type": "rectangle", "id": "member", "x": 790, "y": 900, "width": 280, "height": 110,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "#ffd8a8",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": { "type": 3 }, "seed": 200019, "version": 1,
+      "isDeleted": false, "boundElements": [{ "id": "member_text", "type": "text" }, { "id": "arr_mine_member", "type": "arrow" }]
+    },
+    {
+      "type": "text", "id": "member_text", "x": 839, "y": 921, "width": 182, "height": 68,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": null, "seed": 200020, "version": 1,
+      "isDeleted": false, "boundElements": [], "containerId": "member", "autoResize": true,
+      "text": "👑 会员体系\n19元/月 · 128元/年\n全模块特权打包",
+      "originalText": "👑 会员体系\n19元/月 · 128元/年\n全模块特权打包",
+      "fontSize": 18, "fontFamily": 1, "textAlign": "center", "verticalAlign": "middle"
+    },
+
+    {
+      "type": "arrow", "id": "arr_home_letter", "x": 570, "y": 450, "width": 264, "height": 120,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": { "type": 2 }, "seed": 200021, "version": 1,
+      "isDeleted": false, "boundElements": [],
+      "points": [[0, 0], [-264, -120]], "lastCommittedPoint": null,
+      "startBinding": { "elementId": "home", "fixedPoint": [0, 0.3] },
+      "endBinding": { "elementId": "letter", "fixedPoint": [0.6, 1] },
+      "startArrowhead": null, "endArrowhead": "arrow"
+    },
+    {
+      "type": "arrow", "id": "arr_home_bailan", "x": 700, "y": 420, "width": 0, "height": 90,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": { "type": 2 }, "seed": 200022, "version": 1,
+      "isDeleted": false, "boundElements": [],
+      "points": [[0, 0], [0, -90]], "lastCommittedPoint": null,
+      "startBinding": { "elementId": "home", "fixedPoint": [0.5, 0] },
+      "endBinding": { "elementId": "bailan", "fixedPoint": [0.5, 1] },
+      "startArrowhead": null, "endArrowhead": "arrow"
+    },
+    {
+      "type": "arrow", "id": "arr_home_tarot", "x": 830, "y": 450, "width": 264, "height": 120,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": { "type": 2 }, "seed": 200023, "version": 1,
+      "isDeleted": false, "boundElements": [],
+      "points": [[0, 0], [264, -120]], "lastCommittedPoint": null,
+      "startBinding": { "elementId": "home", "fixedPoint": [1, 0.3] },
+      "endBinding": { "elementId": "tarot", "fixedPoint": [0.4, 1] },
+      "startArrowhead": null, "endArrowhead": "arrow"
+    },
+    {
+      "type": "arrow", "id": "arr_home_wish", "x": 570, "y": 490, "width": 264, "height": 150,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": { "type": 2 }, "seed": 200024, "version": 1,
+      "isDeleted": false, "boundElements": [],
+      "points": [[0, 0], [-264, 150]], "lastCommittedPoint": null,
+      "startBinding": { "elementId": "home", "fixedPoint": [0, 0.7] },
+      "endBinding": { "elementId": "wish", "fixedPoint": [0.6, 0] },
+      "startArrowhead": null, "endArrowhead": "arrow"
+    },
+    {
+      "type": "arrow", "id": "arr_home_mine", "x": 700, "y": 520, "width": 0, "height": 120,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": { "type": 2 }, "seed": 200025, "version": 1,
+      "isDeleted": false, "boundElements": [],
+      "points": [[0, 0], [0, 120]], "lastCommittedPoint": null,
+      "startBinding": { "elementId": "home", "fixedPoint": [0.5, 1] },
+      "endBinding": { "elementId": "mine", "fixedPoint": [0.5, 0] },
+      "startArrowhead": null, "endArrowhead": "arrow"
+    },
+    {
+      "type": "arrow", "id": "arr_home_bottle", "x": 830, "y": 490, "width": 264, "height": 150,
+      "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": { "type": 2 }, "seed": 200026, "version": 1,
+      "isDeleted": false, "boundElements": [],
+      "points": [[0, 0], [264, 150]], "lastCommittedPoint": null,
+      "startBinding": { "elementId": "home", "fixedPoint": [1, 0.7] },
+      "endBinding": { "elementId": "bottle", "fixedPoint": [0.4, 0] },
+      "startArrowhead": null, "endArrowhead": "arrow"
+    },
+
+    {
+      "type": "arrow", "id": "arr_mine_coin", "x": 700, "y": 810, "width": 230, "height": 90,
+      "angle": 0, "strokeColor": "#e8590c", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": { "type": 2 }, "seed": 200027, "version": 1,
+      "isDeleted": false, "boundElements": [],
+      "points": [[0, 0], [-230, 90]], "lastCommittedPoint": null,
+      "startBinding": { "elementId": "mine", "fixedPoint": [0.5, 1] },
+      "endBinding": { "elementId": "coin", "fixedPoint": [0.5, 0] },
+      "startArrowhead": null, "endArrowhead": "arrow"
+    },
+    {
+      "type": "arrow", "id": "arr_mine_member", "x": 700, "y": 810, "width": 230, "height": 90,
+      "angle": 0, "strokeColor": "#e8590c", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": { "type": 2 }, "seed": 200028, "version": 1,
+      "isDeleted": false, "boundElements": [],
+      "points": [[0, 0], [230, 90]], "lastCommittedPoint": null,
+      "startBinding": { "elementId": "mine", "fixedPoint": [0.5, 1] },
+      "endBinding": { "elementId": "member", "fixedPoint": [0.5, 0] },
+      "startArrowhead": null, "endArrowhead": "arrow"
+    },
+
+    {
+      "type": "arrow", "id": "arr_letter_tarot", "x": 280, "y": 160, "width": 840, "height": 40,
+      "angle": 0, "strokeColor": "#868e96", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "dashed", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": { "type": 2 }, "seed": 200029, "version": 1,
+      "isDeleted": false, "boundElements": [],
+      "points": [[0, 0], [0, -40], [840, -40], [840, 0]], "lastCommittedPoint": null,
+      "startBinding": { "elementId": "letter", "fixedPoint": [0.5, 0] },
+      "endBinding": { "elementId": "tarot", "fixedPoint": [0.5, 0] },
+      "startArrowhead": null, "endArrowhead": "arrow"
+    },
+    {
+      "type": "arrow", "id": "arr_bailan_bottle", "x": 830, "y": 296, "width": 238, "height": 344,
+      "angle": 0, "strokeColor": "#868e96", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "dashed", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": { "type": 2 }, "seed": 200030, "version": 1,
+      "isDeleted": false, "boundElements": [],
+      "points": [[0, 0], [238, 344]], "lastCommittedPoint": null,
+      "startBinding": { "elementId": "bailan", "fixedPoint": [1, 0.8] },
+      "endBinding": { "elementId": "bottle", "fixedPoint": [0.3, 0] },
+      "startArrowhead": null, "endArrowhead": "arrow"
+    },
+
+    {
+      "type": "text", "id": "legend", "x": 360, "y": 1060, "width": 680, "height": 20,
+      "angle": 0, "strokeColor": "#868e96", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 1,
+      "opacity": 100, "groupIds": [], "roundness": null, "seed": 200031, "version": 1,
+      "isDeleted": false, "boundElements": [],
+      "text": "实线 = 首页入口 · 虚线 = 交叉引流（信箱→塔罗 / 摆烂→漂流墙）· 橙色 = 商业化体系 · 绿 = 个人中心",
+      "originalText": "实线 = 首页入口 · 虚线 = 交叉引流（信箱→塔罗 / 摆烂→漂流墙）· 橙色 = 商业化体系 · 绿 = 个人中心",
+      "fontSize": 16, "fontFamily": 1, "textAlign": "center", "verticalAlign": "top"
+    }
+  ],
+  "appState": {
+    "viewBackgroundColor": "#ffffff",
+    "gridSize": null
+  }
+}

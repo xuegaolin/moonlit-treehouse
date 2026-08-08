@@ -1,0 +1,100 @@
+{
+  "description": "今夜树屋 Moonlit Treehouse 小程序项目配置",
+  "packOptions": {
+    "ignore": [
+      {
+        "type": "folder",
+        "value": "docs"
+      }
+    ],
+    "include": []
+  },
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": false,
+    "coverView": true,
+    "nodeModules": false,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": true,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "useApiHostProcess": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "bundle": false,
+    "useIsolateContext": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true,
+    "condition": false
+  },
+  "compileType": "miniprogram",
+  "libVersion": "3.8.9",
+  "appid": "wx70b4c66051ab6ff0",
+  "projectname": "moonlit-treehouse",
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "树屋首页",
+          "pathName": "pages/home/home",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "摆烂许可证",
+          "pathName": "pages/bailan/bailan",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "深夜信箱",
+          "pathName": "pages/letter/letter",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "塔罗盲盒",
+          "pathName": "pages/tarot/tarot",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "许愿池",
+          "pathName": "pages/wish/wish",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "漂流瓶",
+          "pathName": "pages/bottle/bottle",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  },
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  }
+}

@@ -1,0 +1,184 @@
+.page {
+  min-height: 100vh;
+  padding-bottom: 80rpx;
+  background: linear-gradient(180deg, #2A2450 0%, #1F1C33 40%);
+}
+
+.loading {
+  text-align: center;
+  padding: 200rpx 0;
+  font-size: 26rpx;
+}
+
+/* ====== 信封区 ====== */
+.envelope-area {
+  padding: 48rpx 32rpx 0;
+  text-align: center;
+}
+
+.envelope-bg {
+  border-radius: 24rpx;
+  padding: 64rpx 40rpx;
+  box-shadow: 0 16rpx 48rpx rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.envelope-default {
+  background: linear-gradient(135deg, #3D3663 0%, #221E3D 100%);
+  border: 1rpx solid rgba(245, 215, 110, 0.2);
+}
+
+.envelope-kraft {
+  background: linear-gradient(135deg, #6B5436 0%, #4A3820 100%);
+  border: 1rpx solid rgba(232, 184, 75, 0.3);
+}
+
+.envelope-sakura {
+  background: linear-gradient(135deg, #6B4367 0%, #3D2645 100%);
+  border: 1rpx solid rgba(245, 200, 220, 0.35);
+}
+
+.envelope-emoji {
+  font-size: 100rpx;
+  margin-bottom: 16rpx;
+}
+
+.envelope-id {
+  font-size: 24rpx;
+  color: #F5D76E;
+  font-family: monospace;
+  letter-spacing: 1rpx;
+}
+
+.envelope-status {
+  display: inline-block;
+  font-size: 22rpx;
+  padding: 6rpx 18rpx;
+  border-radius: 999rpx;
+  margin-top: 16rpx;
+}
+
+.status-pending {
+  background: rgba(245, 215, 110, 0.15);
+  color: #F5D76E;
+  border: 1rpx solid rgba(245, 215, 110, 0.3);
+}
+
+.status-delivered,
+.status-replied {
+  background: rgba(107, 92, 231, 0.18);
+  color: #B9B3E8;
+  border: 1rpx solid rgba(107, 92, 231, 0.3);
+}
+
+.status-canceled {
+  background: rgba(156, 151, 184, 0.15);
+  color: #6E6899;
+  border: 1rpx solid rgba(156, 151, 184, 0.2);
+}
+
+.deliver-hint {
+  margin-top: 24rpx;
+}
+
+.deliver-time {
+  font-size: 28rpx;
+  color: #F5D76E;
+  font-weight: 600;
+}
+
+.deliver-when {
+  display: block;
+  font-size: 22rpx;
+  color: #9C97B8;
+  margin-top: 8rpx;
+}
+
+/* ====== 信件正文 ====== */
+.content-card {
+  margin: 36rpx 24rpx 0;
+  background: #2A2450;
+  border-radius: 20rpx;
+  padding: 32rpx 28rpx;
+  border: 1rpx solid rgba(245, 215, 110, 0.1);
+}
+
+.content-title {
+  font-size: 22rpx;
+  margin-bottom: 20rpx;
+  letter-spacing: 2rpx;
+}
+
+.content-body {
+  font-size: 30rpx;
+  line-height: 1.9;
+  color: #E8E6F5;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+/* ====== AI 回信 ====== */
+.reply-card {
+  margin: 24rpx 24rpx 0;
+  background: linear-gradient(135deg, rgba(107, 92, 231, 0.15) 0%, rgba(107, 92, 231, 0.05) 100%);
+  border: 1rpx solid rgba(107, 92, 231, 0.3);
+  border-radius: 20rpx;
+  padding: 28rpx;
+}
+
+.reply-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 26rpx;
+  color: #E8E6F5;
+  font-weight: 600;
+  margin-bottom: 20rpx;
+}
+
+.reply-icon {
+  font-size: 30rpx;
+  margin-right: 8rpx;
+}
+
+.reply-persona {
+  font-weight: normal;
+  font-size: 22rpx;
+  margin-left: 4rpx;
+}
+
+.reply-body {
+  font-size: 28rpx;
+  line-height: 1.8;
+  color: #D8D4F0;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.reply-tip {
+  font-size: 22rpx;
+  margin-top: 16rpx;
+  text-align: right;
+}
+
+/* ====== 操作 ====== */
+.actions {
+  display: flex;
+  flex-direction: row;
+  margin: 36rpx 32rpx 0;
+}
+
+.action-btn {
+  flex: 1;
+  height: 88rpx;
+  line-height: 88rpx;
+  margin: 0 12rpx;
+}
+
+.footer {
+  text-align: center;
+  font-size: 22rpx;
+  margin-top: 40rpx;
+  font-style: italic;
+}

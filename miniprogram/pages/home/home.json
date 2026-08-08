@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "今夜树屋",
+  "usingComponents": {
+    "module-card": "/components/module-card/module-card",
+    "coin-badge": "/components/coin-badge/coin-badge"
+  }
+}

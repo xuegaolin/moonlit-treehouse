@@ -1,0 +1,36 @@
+<view class="page">
+    <view class="header">
+        <text class="header-title">好友</text>
+    </view>
+
+    <view wx:if="{{loading}}" class="loading">
+        <text>加载中...</text>
+    </view>
+
+    <view wx:elif="{{!hasFriends}}" class="empty">
+        <text class="empty-icon">👥</text>
+        <text class="empty-text">暂无好友</text>
+        <text class="empty-hint">去漂流墙寻找志同道合的小伙伴吧~</text>
+    </view>
+
+    <view wx:else class="friend-list">
+        <view
+            wx:for="{{friends}}"
+            wx:key="userId"
+            class="friend-item"
+            bindtap="startChat"
+            data-friend="{{item}}"
+        >
+            <view class="friend-avatar">
+                <text class="avatar-text">{{item.nickname ? item.nickname.charAt(0) : '匿'}}</text>
+            </view>
+            <view class="friend-info">
+                <text class="friend-name">{{item.nickname || '匿名用户'}}</text>
+                <text wx:if="{{item.status === 'PENDING'}}" class="friend-status">待接受</text>
+                <text wx:elif="{{item.status === 'BLOCKED'}}" class="friend-status">已拉黑</text>
+                <text wx:else class="friend-status friend-status-ok">{{item.remark || ''}}</text>
+            </view>
+            <view class="friend-arrow">›</view>
+        </view>
+    </view>
+</view>

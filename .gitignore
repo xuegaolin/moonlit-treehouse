@@ -1,0 +1,58 @@
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# IDE
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+.settings/
+.classpath
+.project
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/
+
+# Environment
+.env
+.env.local
+
+# Credentials (IMPORTANT: Never commit credentials!)
+.credentials/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.out
+
+# Database backups
+*.sql.bak
+backup-*.sql
+
+# User-specific files
+*.swp
+*.swo
+*~
+
+# Local development files
+application-local.yml
+application-dev.yml.local

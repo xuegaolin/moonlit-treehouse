@@ -1,0 +1,65 @@
+<view class="page" wx:if="{{detail}}">
+
+  <!-- 信封区 -->
+  <view class="envelope-area">
+    <view class="envelope-bg envelope-{{detail.envelopeCode}}">
+      <view class="envelope-emoji">{{envelopeEmoji[detail.envelopeCode] || '✉️'}}</view>
+      <view class="envelope-id">{{detail.letterId}}</view>
+      <!-- 注意：WXML 不支持 .toLowerCase() 等方法调用，状态样式类由 JS 预先算好 statusClass -->
+      <view class="envelope-status {{statusClass}}">{{statusText}}</view>
+    </view>
+
+    <view class="deliver-hint">
+      <text class="deliver-time">{{detail.deliverHint}}</text>
+      <text class="deliver-when" wx:if="{{detail.status === 'PENDING'}}">预计 {{deliverAtText}}</text>
+      <text class="deliver-when" wx:elif="{{detail.deliveredAt}}">送达于 {{deliveredAtText}}</text>
+    </view>
+  </view>
+
+  <!-- 正文 -->
+  <view class="content-card card">
+    <view class="content-title text-muted">给
+      <text wx:if="{{detail.receiverType === 'self_future'}}">未来的自己</text>
+      <text wx:elif="{{detail.receiverType === 'self_now'}}">现在的自己</text>
+      <text wx:elif="{{detail.receiverType === 'missed_one'}}">那个错过的人</text>
+      <text wx:else>某个陌生人</text>
+      的信
+    </view>
+    <view class="content-body">{{detail.content}}</view>
+  </view>
+
+  <!-- AI 回信（仅已送达/已回信且有回信内容时显示） -->
+  <view class="reply-card card" wx:if="{{showReply}}">
+    <view class="reply-title">
+      <text class="reply-icon">🤖</text>
+      <text>AI 回信</text>
+      <text class="reply-persona text-muted" wx:if="{{personaText}}">· {{personaText}}</text>
+    </view>
+    <view class="reply-body">{{detail.aiReply}}</view>
+    <view class="reply-tip text-muted">v1.1 上线 · 当前为占位文案</view>
+  </view>
+
+  <!-- 操作区（wx:elif 才是微信的写法，wx:else-if 会编译报错） -->
+  <view class="actions">
+    <block wx:if="{{detail.status === 'PENDING'}}">
+      <button class="btn-primary action-btn" bindtap="onDeliverNow">现在就送达</button>
+      <button class="btn-ghost action-btn" bindtap="onCancel">撤回</button>
+    </block>
+    <block wx:elif="{{detail.canShare}}">
+      <button class="btn-primary action-btn" bindtap="onShareToWall">分享到漂流墙</button>
+      <button class="btn-ghost action-btn" bindtap="onSaveImage">保存为图</button>
+    </block>
+    <block wx:else>
+      <button class="btn-ghost action-btn" bindtap="onSaveImage">保存为图</button>
+    </block>
+  </view>
+
+  <view class="footer text-muted">来自 {{detail.deliverHint}} 的自己</view>
+</view>
+
+<view wx:elif="{{loading}}" class="loading text-muted">正在打开信封…</view>
+
+<view wx:else class="loading text-muted">
+  <view>信封找不到了 🌙</view>
+  <button class="btn-ghost action-btn" style="margin-top: 32rpx;" bindtap="onBack">返回信箱</button>
+</view>

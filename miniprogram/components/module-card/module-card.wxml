@@ -1,0 +1,11 @@
+<view class="module-card" bindtap="onTap">
+  <view class="icon-wrap">
+    <text class="icon">{{icon}}</text>
+    <view wx:if="{{!ready}}" class="soon-tag">敬请期待</view>
+  </view>
+  <view class="meta">
+    <view class="title">{{title}}</view>
+    <view class="desc">{{desc}}</view>
+  </view>
+  <view class="arrow">›</view>
+</view>

@@ -1,0 +1,92 @@
+<view class="page">
+
+  <!-- 资料卡 -->
+  <view class="card profile-card">
+    <button class="avatar-btn" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+      <image wx:if="{{avatar}}" class="avatar" src="{{avatar}}" mode="aspectFill" />
+      <view wx:else class="avatar avatar-ph">🌙</view>
+    </button>
+    <view class="profile-meta">
+      <input
+        class="nickname"
+        type="nickname"
+        placeholder="点击设置昵称"
+        placeholder-class="input-ph"
+        value="{{nickname}}"
+        bindinput="onNicknameChange"
+        bindblur="onNicknameBlur"
+      />
+      <view class="openid text-muted">ID：{{openidShort}}</view>
+    </view>
+    <view wx:if="{{memberExpireAt}}" class="member-tag">会员</view>
+  </view>
+
+  <!-- 月光币 -->
+  <view class="card">
+    <view class="row-between">
+      <view class="section-title">月光币</view>
+      <coin-badge balance="{{wallet.balance}}" />
+    </view>
+    <view class="wallet-row">
+      <view class="wallet-item">
+        <view class="wallet-num text-gold">{{wallet.todayEarned}}</view>
+        <view class="wallet-label text-muted">今日已赚</view>
+      </view>
+      <view class="wallet-item">
+        <view class="wallet-num">{{wallet.todayLimit}}</view>
+        <view class="wallet-label text-muted">每日上限</view>
+      </view>
+      <view class="wallet-item">
+        <view class="wallet-num">{{wallet.balance}}</view>
+        <view class="wallet-label text-muted">当前余额</view>
+      </view>
+    </view>
+    <view class="earn-tip text-muted">领摆烂许可证 +5 · 签到、许愿等玩法陆续开放</view>
+  </view>
+
+  <!-- 会员入口 -->
+  <view class="card member-card">
+    <view class="section-title">月光会员</view>
+    <view class="member-desc text-muted">不限量 AI 回信 · 高级证书模板 · 专属徽章</view>
+    <view class="plans">
+      <view
+        wx:for="{{plans}}"
+        wx:key="code"
+        class="plan {{item.recommend ? 'plan-recommend' : ''}}"
+        data-code="{{item.code}}"
+        bindtap="onSubscribe"
+      >
+        <view wx:if="{{item.recommend}}" class="plan-tag">推荐</view>
+        <view class="plan-label">{{item.label}}</view>
+        <view class="plan-price">¥<text class="plan-price-num">{{item.price}}</text></view>
+        <view class="plan-days text-muted">{{item.daysText}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 功能入口 -->
+  <view class="card entries">
+    <view class="entry" bindtap="goMyLicenses">
+      <text class="entry-icon">🪑</text>
+      <text class="entry-label">我的摆烂证书</text>
+      <text class="entry-arrow">›</text>
+    </view>
+    <view class="entry" bindtap="goSettings">
+      <text class="entry-icon">⚙️</text>
+      <text class="entry-label">设置</text>
+      <text class="entry-arrow">›</text>
+    </view>
+    <view class="entry" bindtap="goFeatureVote">
+      <text class="entry-icon">💡</text>
+      <text class="entry-label">功能投票</text>
+      <text class="entry-arrow">›</text>
+    </view>
+  </view>
+
+  <!-- 社交功能提示 -->
+  <view class="social-tip text-muted">
+    <text>开通会员并完成实名认证，即可使用聊天和加好友功能</text>
+  </view>
+
+  <view class="footer text-muted">今夜树屋 · 不设人设不看脸</view>
+</view>

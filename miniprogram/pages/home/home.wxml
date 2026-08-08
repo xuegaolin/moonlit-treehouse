@@ -1,0 +1,122 @@
+<view class="page">
+  <!-- 顶部：问候 + 月光币 + 消息 -->
+  <view class="header">
+    <view class="header-left">
+      <view class="logo">
+        <image wx:if="{{avatar}}" class="avatar" src="{{avatar}}" mode="aspectFill" />
+        <text wx:else>🌙</text>
+      </view>
+      <view>
+        <view class="app-name">今夜树屋</view>
+        <view class="greeting">{{greeting}}</view>
+      </view>
+    </view>
+    <view class="header-right">
+      <view wx:if="{{canUseChat}}" class="msg-btn" bindtap="goChatList">
+        <text>💬</text>
+      </view>
+      <view wx:if="{{canUseChat && friendEnabled}}" class="msg-btn" bindtap="goFriendList">
+        <text>👥</text>
+      </view>
+      <coin-badge balance="{{coinBalance}}" />
+    </view>
+  </view>
+
+  <!-- 招牌 -->
+  <view class="slogan card">
+    <view class="slogan-line">白天你在人间打拼，</view>
+    <view class="slogan-line">晚上来树屋躲一躲。</view>
+  </view>
+
+  <!-- 签到卡：回访的理由 -->
+  <view class="checkin card">
+    <view class="checkin-top">
+      <view class="checkin-info">
+        <view class="checkin-title">
+          <block wx:if="{{streakDays > 0}}">已连续点亮 {{streakDays}} 晚</block>
+          <block wx:else>今晚给树屋点盏灯</block>
+        </view>
+        <view class="checkin-sub text-muted">
+          <block wx:if="{{checkedToday}}">今日已签到，明天这个时候再来</block>
+          <block wx:else>签到可得 {{todayReward}} 月光币</block>
+        </view>
+      </view>
+      <view
+        class="checkin-btn {{checkedToday ? 'checkin-btn-done' : ''}}"
+        bindtap="onTapCheckin"
+      >
+        <block wx:if="{{checkinLoading}}">…</block>
+        <block wx:elif="{{checkedToday}}">已签到</block>
+        <block wx:else>签到</block>
+      </view>
+    </view>
+
+    <!-- 近 7 天日历 -->
+    <view class="checkin-cal">
+      <view
+        class="cal-cell {{item.checked ? 'cal-cell-on' : ''}} {{item.isToday ? 'cal-cell-today' : ''}}"
+        wx:for="{{calendar}}"
+        wx:key="date"
+      >
+        <view class="cal-dot">
+          <block wx:if="{{item.checked}}">●</block>
+          <block wx:else>○</block>
+        </view>
+        <view class="cal-label">{{item.label}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 社交功能入口（仅会员+实名+开关打开时可见） -->
+  <view wx:if="{{canUseChat && (chatEnabled || friendEnabled)}}" class="section-title">社交</view>
+  <view wx:if="{{canUseChat && (chatEnabled || friendEnabled)}}" class="social-section">
+    <view wx:if="{{chatEnabled}}" class="social-item" bindtap="goChatList">
+      <view class="social-icon">💬</view>
+      <view class="social-text">
+        <view class="social-title">消息</view>
+        <view class="social-desc">查看聊天记录</view>
+      </view>
+      <view class="social-arrow">›</view>
+    </view>
+    <view wx:if="{{friendEnabled}}" class="social-item" bindtap="goFriendList">
+      <view class="social-icon">👥</view>
+      <view class="social-text">
+        <view class="social-title">好友</view>
+        <view class="social-desc">管理好友列表</view>
+      </view>
+      <view class="social-arrow">›</view>
+    </view>
+  </view>
+
+  <!-- 5 大模块入口 -->
+  <view class="section-title">今夜想做点什么？</view>
+  <module-card
+    wx:for="{{modules}}"
+    wx:key="title"
+    icon="{{item.icon}}"
+    title="{{item.title}}"
+    desc="{{item.desc}}"
+    path="{{item.path}}"
+    ready="{{item.ready}}"
+  />
+
+  <view class="footer text-muted">不设人设 · 不看脸 · 完全匿名</view>
+
+  <!-- 签到成功弹层 -->
+  <view class="mask" wx:if="{{showCheckinResult}}" bindtap="onCloseCheckinResult">
+    <view class="result-card" catchtap="noop">
+      <view class="result-icon">🌙</view>
+      <view class="result-streak">连续 {{checkinResult.streakDays}} 晚</view>
+      <view class="result-encourage">{{checkinResult.encourage}}</view>
+      <view class="result-coin">月光币 +{{checkinResult.coinReward}}</view>
+
+      <view class="result-medals" wx:if="{{checkinResult.newMedals.length > 0}}">
+        <view class="result-medals-title">新勋章解锁！</view>
+        <view class="result-medal" wx:for="{{checkinResult.newMedals}}" wx:key="code">🏅 {{item.name}}</view>
+      </view>
+
+      <view class="result-next text-muted">明天签到可得 {{checkinResult.nextReward}} 月光币</view>
+      <view class="result-close" bindtap="onCloseCheckinResult">知道了</view>
+    </view>
+  </view>
+</view>

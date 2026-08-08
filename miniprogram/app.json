@@ -1,0 +1,46 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/user/user",
+    "pages/bailan/bailan",
+    "pages/letter/letter",
+    "pages/letter-detail/letter-detail",
+    "pages/tarot/tarot",
+    "pages/wish/wish",
+    "pages/bottle/bottle",
+    "pages/settings/settings",
+    "pages/feature-vote/feature-vote",
+    "pages/chat-list/chat-list",
+    "pages/chat-detail/chat-detail",
+    "pages/chat-friends/chat-friends"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#6B5CE7",
+    "navigationBarTitleText": "今夜树屋",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#1F1C33"
+  },
+  "tabBar": {
+    "color": "#9C97B8",
+    "selectedColor": "#6B5CE7",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "树屋",
+        "iconPath": "images/icon-home.png",
+        "selectedIconPath": "images/icon-home-active.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "images/icon-user.png",
+        "selectedIconPath": "images/icon-user-active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "lazyCodeLoading": "requiredComponents",
+  "sitemapLocation": "sitemap.json"
+}

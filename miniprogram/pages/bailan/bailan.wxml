@@ -1,0 +1,111 @@
+<view class="page">
+
+  <!-- 顶部状态条 -->
+  <view class="topbar">
+    <view class="streak">
+      <text class="streak-num">{{streakDays}}</text>
+      <text class="streak-label"> 天连续摆烂</text>
+    </view>
+    <coin-badge balance="{{coinBalance}}" size="small" />
+  </view>
+
+  <!-- 未领取：领取表单 -->
+  <block wx:if="{{!todayLicense}}">
+    <view class="hero card">
+      <view class="hero-icon">🪑</view>
+      <view class="hero-title">今日摆烂许可证</view>
+      <view class="hero-desc">今天，你有权利什么都不做</view>
+    </view>
+
+    <!-- 摆烂理由类型 -->
+    <view class="section">
+      <view class="section-title">选一个摆烂理由</view>
+      <view class="chips">
+        <view
+          wx:for="{{types}}"
+          wx:key="code"
+          class="chip {{selectedType === item.code ? 'chip-active' : ''}}"
+          data-code="{{item.code}}"
+          bindtap="onSelectType"
+        >{{item.label}}</view>
+      </view>
+    </view>
+
+    <!-- 模板选择 -->
+    <view class="section">
+      <view class="section-title">证书模板</view>
+      <view class="chips">
+        <view
+          wx:for="{{templates}}"
+          wx:key="code"
+          class="chip {{selectedTemplate === item.code ? 'chip-active' : ''}} {{!item.free ? 'chip-lock' : ''}}"
+          data-code="{{item.code}}"
+          bindtap="onSelectTemplate"
+        >{{item.free ? '' : '🔒 '}}{{item.label}}</view>
+      </view>
+    </view>
+
+    <!-- 持证人昵称 -->
+    <view class="section">
+      <view class="section-title">持证人</view>
+      <input
+        class="nickname-input"
+        type="nickname"
+        placeholder="写上你的大名（可改）"
+        placeholder-class="input-ph"
+        value="{{nickname}}"
+        bindinput="onNicknameInput"
+      />
+    </view>
+
+    <view class="claim-area">
+      <view
+        class="btn-primary claim-btn {{claiming ? 'claim-btn-loading' : ''}}"
+        hover-class="claim-btn-hover"
+        hover-stay-time="80"
+        bindtap="onClaim"
+      >
+        <text wx:if="{{claiming}}" class="claim-btn-spinner">⏳</text>
+        <text>{{claiming ? '签发中…' : '领取今日许可证'}}</text>
+      </view>
+      <view class="claim-tip text-muted">每日限领一张 · 首次领取 +5 月光币</view>
+    </view>
+  </block>
+
+  <!-- 已领取：证书预览 + 操作 -->
+  <block wx:else>
+    <view id="certArea" class="cert-area">
+      <canvas type="2d" id="certCanvas" class="cert-canvas"></canvas>
+    </view>
+
+    <view class="actions">
+      <view class="btn-primary action-btn" hover-class="btn-primary-hover" bindtap="onSaveImage">保存到相册</view>
+      <button class="btn-ghost action-btn btn-ghost-share" open-type="share">分享给朋友</button>
+    </view>
+    <view class="share-tip text-muted">截图发朋友圈，宣告今日主权 🌙</view>
+  </block>
+
+  <!-- 历史记录 -->
+  <view class="history" wx:if="{{myList.length > 0}}">
+    <view class="history-header" bindtap="toggleHistory">
+      <text>我的证书（{{myList.length}}）</text>
+      <text class="history-toggle">{{showHistory ? '收起 ▲' : '展开 ▼'}}</text>
+    </view>
+    <view wx:if="{{showHistory}}">
+      <view
+        wx:for="{{myList}}"
+        wx:key="licenseNo"
+        class="history-item"
+        data-item="{{item}}"
+        bindtap="onViewHistory"
+      >
+        <view>
+          <view class="history-no">{{item.licenseNo}}</view>
+          <view class="history-reason">{{item.reasonText}}</view>
+        </view>
+        <view class="history-view">查看</view>
+      </view>
+    </view>
+  </view>
+
+</view>

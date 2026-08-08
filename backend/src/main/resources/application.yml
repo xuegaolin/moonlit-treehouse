@@ -1,0 +1,104 @@
+# 今夜树屋 Moonlit Treehouse 后端配置
+# 说明：带 placeholder 的项上线前必须替换
+
+server:
+  port: 8081
+  servlet:
+    # API 规范：Base URL = https://域名/api/v1，故 context-path 统一挂 /api/v1
+    context-path: /api/v1
+    encoding:
+      charset: UTF-8
+      force: true
+
+spring:
+  application:
+    name: moonlit-treehouse
+
+  # 环境 profile：本地开发默认 dev（开启 /wechat/test-login 免 code 登录）
+  # 上线前通过环境变量 SPRING_PROFILES_ACTIVE=prod 覆盖
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
+
+  datasource:
+    # TODO(占位): 替换为真实数据库地址
+    url: jdbc:mysql://localhost:3306/treehouse?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: none            # 完全交给 docs/sql/init.sql，Hibernate 只验不改（避免零日期报错）
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
+  jackson:
+    time-zone: Asia/Shanghai
+    date-format: yyyy-MM-dd HH:mm:ss
+
+# 微信小程序
+wechat:
+  miniapp:
+    # TODO(占位): 小程序 appid / secret，mp.weixin.qq.com 后台获取
+    appid: wx70b4c66051ab6ff0
+    secret: d896c8ad7b81b13db70004cf349d4c31
+    login-url: https://api.weixin.qq.com/sns/jscode2session
+    # 订阅消息 template_id（去 mp.weixin.qq.com 订阅消息 > 公共模板库 申请）
+    # dev 场景下留空，sendSubscribeMessage 会自动跳过真发，仅入 log（状态 PENDING），
+    # 申请到真 template_id 后通过环境变量 WECHAT_TEMPLATE_ID_LETTER 注入
+    template-id-letter: ${WECHAT_TEMPLATE_ID_LETTER:}
+  jwt:
+    # 生产环境通过环境变量 JWT_SECRET 注入真实密钥，禁止提交到代码库
+    # 本地开发使用默认值即可
+    secret: ${JWT_SECRET:moonlit-treehouse-dev-secret-do-not-use-in-prod-0123456789abcdef}
+    expiration: 604800000      # 7 天（毫秒），过期后前端 wx.login 静默续期
+
+# 业务配置
+treehouse:
+  coin:
+    daily-earn-limit: 30       # 月光币每日获取上限（v1.5 饥饿营销：100→30，剩 3-5 天耐玩期）
+  bailan:
+    daily-coin-reward: 2       # 每日首次领摆烂许可证奖励月光币（v1.5：5→2）
+  # 上传文件目录：默认 ./uploads（工作目录下），生产环境可过环境变量 UPLOAD_DIR 覆盖
+  upload-dir: ${UPLOAD_DIR:./uploads}
+  # 对外访问前缀，生产建议改为 CDN 域名（与 resource handler 建立映射）
+  upload-url-prefix: /uploads
+  # ===== AI / LLM 接入 =====
+  # 说明：AI 是增强而非依赖。key 缺失或调用失败时，所有模块自动回落到静态模板，
+  #      业务不会因 LLM 故障而报错（见 AiService.isAvailable / 各 Service 的兜底分支）。
+  ai:
+    enabled: ${TREEHOUSE_AI_ENABLED:true}
+    # 已验证可用：火山方舟 ark（OpenAI 兼容协议）
+    # 注意：阿里 coding.dashscope 端点是 Coding-Agent 专用，业务调用返回 HTTP 405，不可用
+    base-url: ${TREEHOUSE_AI_BASE_URL:https://ark.cn-beijing.volces.com/api/coding/v3}
+    # 生产环境必须通过环境变量注入，禁止提交到代码库
+    api-key: ${TREEHOUSE_AI_API_KEY:}
+    # 专用 truststore：本机 JDK8 的 cacerts 被换成了自定义密钥库（仅 15 个私有证书，
+    # 无任何公共 CA），导致 HTTPS 报 PKIX path building failed。
+    # 不改共用 JDK cacerts（会影响其他项目），只给 AI 调用挂这个小信任库。
+    # 生产服务器 cacerts 正常时，设 TREEHOUSE_AI_TRUSTSTORE= 置空即可用 JVM 默认信任链。
+    truststore: ${TREEHOUSE_AI_TRUSTSTORE:classpath:ark-truststore.jks}
+    truststore-password: ${TREEHOUSE_AI_TRUSTSTORE_PWD:treehouse}
+    # 短文案模型（摆烂理由、塔罗短解）——速度优先
+    model: ${TREEHOUSE_AI_MODEL:doubao-seed-2.0-pro}
+    # 长文模型（AI 回信、深度解读等付费内容）——质量优先
+    model-long: ${TREEHOUSE_AI_MODEL_LONG:deepseek-v4-pro}
+    connect-timeout-ms: 5000
+    # LLM 长文生成偶发超 20s（实测过），放宽到 30s。
+    # 小程序端请求默认超时 60s，30s 仍在安全区间内。
+    read-timeout-ms: 30000
+
+# 微信支付（MVP mock-mode=true，生产环境切为 false 并配商户信息）
+wechatpay:
+  mock-mode: ${WECHATPAY_MOCK:true}
+  mchid: ${WECHATPAY_MCHID:}
+  api-v3-key: ${WECHATPAY_API_V3_KEY:}
+  cert-serial-no: ${WECHATPAY_CERT_SERIAL:}
+  private-key-path: ${WECHATPAY_PRIVATE_KEY_PATH:}
+  notify-url: ${WECHATPAY_NOTIFY_URL:https://api.treehouse.example.com/api/v1/order/notify}
+
+logging:
+  level:
+    com.treehouse: debug

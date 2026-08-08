@@ -1,0 +1,449 @@
+.page {
+  min-height: 100vh;
+  padding-bottom: 80rpx;
+  background: linear-gradient(180deg, #2A2450 0%, #1F1C33 40%);
+}
+
+/* ====== Tab 栏 ====== */
+.tabbar {
+  display: flex;
+  flex-direction: row;
+  background: #1F1C33;
+  border-bottom: 1rpx solid #2A2450;
+}
+
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 28rpx 0;
+  color: #9C97B8;
+  font-size: 28rpx;
+  position: relative;
+}
+
+.tab-active {
+  color: #F5D76E;
+  font-weight: 600;
+}
+
+.tab-active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60rpx;
+  height: 4rpx;
+  background: #F5D76E;
+  border-radius: 2rpx;
+}
+
+/* ====== Hero ====== */
+.hero {
+  text-align: center;
+  padding: 60rpx 32rpx 32rpx;
+}
+
+.hero-icon {
+  font-size: 80rpx;
+  letter-spacing: 8rpx;
+}
+
+.hero-title {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #E8E6F5;
+  margin-top: 24rpx;
+}
+
+.hero-desc {
+  font-size: 24rpx;
+  margin-top: 12rpx;
+}
+
+/* ====== 洗牌动效 ====== */
+.shuffling {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 100rpx 0;
+  position: relative;
+}
+
+.shuffle-card {
+  width: 140rpx;
+  height: 200rpx;
+  background: linear-gradient(135deg, #4A3F8F 0%, #2A2450 100%);
+  border-radius: 16rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 60rpx;
+  box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.4);
+  margin: 0 -16rpx;
+  animation: shuffle 1.2s ease-in-out infinite;
+}
+
+.shuffle-card-2 {
+  animation-delay: 0.2s;
+}
+
+.shuffle-card-3 {
+  animation-delay: 0.4s;
+}
+
+@keyframes shuffle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20rpx); }
+}
+
+/* ====== 单张塔罗牌 ====== */
+.card-area {
+  display: flex;
+  justify-content: center;
+  padding: 32rpx 0;
+}
+
+.tarot-card {
+  width: 460rpx;
+  height: 660rpx;
+  perspective: 1200rpx;
+  position: relative;
+}
+
+.card-back,
+.card-front {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 28rpx;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 16rpx 48rpx rgba(0, 0, 0, 0.45);
+  transition: transform 0.6s ease;
+  border: 2rpx solid rgba(245, 215, 110, 0.3);
+}
+
+.card-back {
+  background: linear-gradient(135deg, #3D3663 0%, #1F1C33 100%);
+}
+
+.card-back-icon {
+  font-size: 100rpx;
+  color: #F5D76E;
+  margin-bottom: 16rpx;
+}
+
+.card-back-text {
+  font-size: 26rpx;
+  color: #F5D76E;
+  letter-spacing: 4rpx;
+  font-family: serif;
+}
+
+.card-front {
+  transform: rotateY(180deg);
+  padding: 48rpx 32rpx;
+}
+
+.tarot-card-flipped .card-back {
+  transform: rotateY(180deg);
+}
+
+.tarot-card-flipped .card-front {
+  transform: rotateY(0deg);
+}
+
+.card-emoji {
+  font-size: 140rpx;
+  margin-bottom: 32rpx;
+}
+
+.card-name {
+  font-size: 52rpx;
+  font-weight: 700;
+  color: #F5D76E;
+  letter-spacing: 4rpx;
+  font-family: serif;
+}
+
+.card-name-en {
+  font-size: 22rpx;
+  color: #B9B3E8;
+  letter-spacing: 2rpx;
+  margin-top: 8rpx;
+  text-transform: uppercase;
+}
+
+.card-position {
+  font-size: 24rpx;
+  padding: 6rpx 20rpx;
+  border-radius: 999rpx;
+  margin-top: 24rpx;
+}
+
+.pos-upright {
+  background: rgba(245, 215, 110, 0.2);
+  color: #F5D76E;
+  border: 1rpx solid rgba(245, 215, 110, 0.4);
+}
+
+.pos-reversed {
+  background: rgba(255, 107, 129, 0.18);
+  color: #FF6B81;
+  border: 1rpx solid rgba(255, 107, 129, 0.4);
+}
+
+.card-keywords {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 32rpx;
+}
+
+.kw {
+  font-size: 22rpx;
+  color: #B9B3E8;
+  background: rgba(184, 179, 232, 0.15);
+  padding: 6rpx 18rpx;
+  border-radius: 999rpx;
+  margin: 6rpx;
+}
+
+/* ====== 解读卡 ====== */
+.card-interpretation,
+.card-full {
+  margin: 24rpx 24rpx 0;
+  background: #2A2450;
+  border-radius: 20rpx;
+  padding: 28rpx;
+}
+
+.interp-title {
+  font-size: 26rpx;
+  color: #F5D76E;
+  font-weight: 600;
+  margin-bottom: 16rpx;
+}
+
+.interp-body {
+  font-size: 28rpx;
+  line-height: 1.8;
+  color: #E8E6F5;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.lucky-row {
+  display: flex;
+  flex-direction: row;
+  margin-top: 24rpx;
+  padding-top: 24rpx;
+  border-top: 1rpx solid rgba(245, 215, 110, 0.1);
+}
+
+.lucky-item {
+  flex: 1;
+  text-align: center;
+}
+
+.lucky-label {
+  font-size: 22rpx;
+  margin-bottom: 8rpx;
+}
+
+.lucky-dot {
+  width: 56rpx;
+  height: 56rpx;
+  border-radius: 50%;
+  margin: 0 auto;
+  box-shadow: 0 0 16rpx rgba(245, 215, 110, 0.4);
+}
+
+.lucky-num {
+  font-size: 44rpx;
+  font-weight: 700;
+  color: #F5D76E;
+  font-family: serif;
+}
+
+.advice-title {
+  font-size: 26rpx;
+  color: #F5D76E;
+  font-weight: 600;
+  margin-top: 28rpx;
+  margin-bottom: 12rpx;
+}
+
+.advice-list {
+  background: rgba(107, 92, 231, 0.1);
+  border-radius: 12rpx;
+  padding: 16rpx 20rpx;
+}
+
+.advice-item {
+  font-size: 26rpx;
+  color: #D8D4F0;
+  line-height: 1.9;
+}
+
+/* ====== 解锁按钮 ====== */
+.unlock-area {
+  margin: 36rpx 32rpx 0;
+  text-align: center;
+}
+
+.unlock-tip {
+  font-size: 22rpx;
+  margin-bottom: 20rpx;
+}
+
+.unlock-btn {
+  height: 88rpx;
+  line-height: 88rpx;
+  font-size: 30rpx;
+}
+
+.share-area {
+  margin: 36rpx 32rpx 0;
+}
+
+.share-btn {
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+/* ====== 三牌阵问题输入 ====== */
+.question-area {
+  width: 100%;
+  min-height: 140rpx;
+  background: #1F1C33;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  color: #E8E6F5;
+  font-size: 28rpx;
+  margin-top: 16rpx;
+  box-sizing: border-box;
+}
+
+.input-ph {
+  color: #6E6899;
+}
+
+.section-title {
+  font-size: 26rpx;
+  color: #9C97B8;
+}
+
+.submit-area {
+  margin: 36rpx 32rpx 0;
+}
+
+.draw-btn {
+  height: 96rpx;
+  line-height: 96rpx;
+  font-size: 34rpx;
+}
+
+/* ====== 三张牌横排 ====== */
+.three-cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 32rpx 24rpx;
+}
+
+.three-card-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+}
+
+.three-card {
+  width: 200rpx;
+  height: 280rpx;
+  perspective: 1000rpx;
+  position: relative;
+  margin-bottom: 16rpx;
+}
+
+.card-back-mini,
+.card-front-mini {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 16rpx;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.35);
+  transition: transform 0.5s ease;
+  border: 1rpx solid rgba(245, 215, 110, 0.25);
+}
+
+.card-back-mini {
+  background: linear-gradient(135deg, #3D3663 0%, #1F1C33 100%);
+}
+
+.card-back-icon-mini {
+  font-size: 60rpx;
+  color: #F5D76E;
+}
+
+.card-front-mini {
+  transform: rotateY(180deg);
+  padding: 16rpx;
+}
+
+.three-card-flipped .card-back-mini {
+  transform: rotateY(180deg);
+}
+
+.three-card-flipped .card-front-mini {
+  transform: rotateY(0deg);
+}
+
+.three-card-emoji {
+  font-size: 60rpx;
+  margin-bottom: 12rpx;
+}
+
+.three-card-name {
+  font-size: 26rpx;
+  font-weight: 600;
+  color: #F5D76E;
+  font-family: serif;
+}
+
+.three-card-position {
+  font-size: 20rpx;
+  padding: 4rpx 12rpx;
+  border-radius: 999rpx;
+  margin-top: 12rpx;
+}
+
+.three-card-role {
+  font-size: 24rpx;
+  color: #9C97B8;
+  text-align: center;
+  margin-top: 4rpx;
+}
+
+/* ===== 塔罗牌正逆位渐变（原先写在 WXML style 里，WXML 无法解析 {{}} 内的 CSS 函数）===== */
+.grad-upright {
+  background: linear-gradient(135deg, #6B5CE7 0%, #4A3F8F 100%);
+}
+
+.grad-reversed {
+  background: linear-gradient(135deg, #2A2450 0%, #1F1C33 100%);
+}

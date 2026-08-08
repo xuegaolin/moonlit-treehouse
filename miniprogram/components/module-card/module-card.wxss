@@ -1,0 +1,70 @@
+.module-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #2A2450;
+  border-radius: 24rpx;
+  padding: 28rpx;
+  margin: 20rpx 24rpx;
+  box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.25);
+}
+
+.module-card:active {
+  opacity: 0.85;
+}
+
+.icon-wrap {
+  position: relative;
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 24rpx;
+  background: #3D3663;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon {
+  font-size: 52rpx;
+}
+
+.soon-tag {
+  position: absolute;
+  bottom: -12rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #F5D76E;
+  color: #4A3F00;
+  font-size: 16rpx;
+  padding: 2rpx 10rpx;
+  border-radius: 999rpx;
+  white-space: nowrap;
+}
+
+.meta {
+  flex: 1;
+  margin-left: 24rpx;
+  overflow: hidden;
+}
+
+.title {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #E8E6F5;
+}
+
+.desc {
+  font-size: 24rpx;
+  color: #9C97B8;
+  margin-top: 6rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.arrow {
+  color: #6B5CE7;
+  font-size: 40rpx;
+  margin-left: 12rpx;
+}
