@@ -1,35 +1,45 @@
 # 用 Maven 镜像构建
 FROM maven:3.8.6-openjdk-8-slim AS build
 
-# 设置工作目录
+# 指定构建过程中的工作目录
 WORKDIR /app
 
-# 复制 pom.xml
-COPY pom.xml .
+# 将src目录下所有文件，拷贝到工作目录中src目录下（.gitignore/.dockerignore中文件除外）
+COPY src /app/src
 
-# 下载依赖（这一步会缓存，加快构建速度）
-RUN mvn dependency:go-offline
+# 将pom.xml文件，拷贝到工作目录下
+COPY settings.xml pom.xml /app/
 
-# 复制源代码
-COPY src ./src
+# 执行代码编译命令
+# 自定义settings.xml, 选用国内镜像源以提高下载速度
+RUN mvn -s /app/settings.xml -f /app/pom.xml clean package
 
-# 构建项目
-RUN mvn clean package -DskipTests
+# 选择运行时基础镜像
+FROM alpine:3.13
 
-# 第二阶段：用 OpenJDK 镜像运行
-FROM openjdk:8-jre-slim
+# 安装依赖包，如需其他依赖包，请到alpine依赖包管理(https://pkgs.alpinelinux.org/packages?name=php8*imagick*&branch=v3.13)查找。
+# 选用国内镜像源以提高下载速度
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.tencent.com/g' /etc/apk/repositories \
+    && apk add --update --no-cache openjdk8-jre-base \
+    && rm -f /var/cache/apk/*
 
-# 设置工作目录
+# 容器默认时区为UTC，如需使用上海时间请启用以下时区设置命令
+# RUN apk add tzdata && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo Asia/Shanghai > /etc/timezone
+
+# 使用 HTTPS 协议访问容器云调用证书安装
+RUN apk add ca-certificates
+
+# 指定运行时的工作目录
 WORKDIR /app
 
-# 复制构建好的 JAR 包
-COPY --from=build /app/target/*.jar app.jar
+# 将构建产物jar包拷贝到运行时目录中
+COPY --from=build /app/target/*.jar .
 
-# 暴露端口（你的项目用的是 8081）
+# 暴露端口
+# 此处端口必须与「服务设置」-「流水线」以及「手动上传代码包」部署时填写的端口一致，否则会部署失败。
 EXPOSE 8081
 
-# 环境变量（默认生产环境）
-ENV SPRING_PROFILES_ACTIVE=prod
-
-# 启动命令
-ENTRYPOINT ["java", "-jar", "app.jar"]
+# 执行启动命令.
+# 写多行独立的CMD命令是错误写法！只有最后一行CMD命令会被执行，之前的都会被忽略，导致业务报错。
+# 请参考[Docker官方文档之CMD命令](https://docs.docker.com/engine/reference/builder/#cmd)
+CMD ["java", "-jar", "/appmoonlit-treehouse-1.0.jar"]
