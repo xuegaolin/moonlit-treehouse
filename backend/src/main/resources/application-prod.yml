@@ -5,7 +5,7 @@ spring:
   application:
     name: moonlit-treehouse
   datasource:
-    url: ${DB_URL}
-    username: ${DB_USERNAME}
-    password: ${DB_PASSWORD}
+    url: jdbc:mysql://172.17.0.9:3306/moonlit-treehouse-d2d4lt0dd2a525
+    username: treehouse
+    password: ...000xue
     driver-class-name: com.mysql.cj.jdbc.Driver
