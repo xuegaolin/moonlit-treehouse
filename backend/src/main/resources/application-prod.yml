@@ -1,11 +1,22 @@
 server:
-  port: 8081
+  port: ${PORT:8081}
 
 spring:
   application:
     name: moonlit-treehouse
   datasource:
-    url: jdbc:mysql://172.17.0.9:3306/moonlit-treehouse-d2d4lt0dd2a525
-    username: treehouse
-    password: ...000xue
+    url: jdbc:mysql://${DB_HOST:172.17.0.9}:${DB_PORT:3306}/${DB_NAME:moonlit-treehouse-d2d4lt0dd2a525}?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true&autoReconnect=true&failOverReadOnly=false&maxReconnects=3
+    username: ${DB_USERNAME:treehouse}
+    password: ${DB_PASSWORD:...000xue}
     driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      connection-timeout: 30000
+      maximum-pool-size: 10
+      minimum-idle: 2
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      connection-test-query: SELECT 1
+
+# CloudBase 环境配置（云托管自动注入，也可手动配置）
+cloudbase:
+  env-id: ${CLOUDBASE_ENV_ID:moonlit-treehouse-d2d4lt0dd2a525}
