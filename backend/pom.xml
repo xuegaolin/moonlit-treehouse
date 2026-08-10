@@ -58,6 +58,23 @@
             <scope>runtime</scope>
         </dependency>
 
+        <!-- CloudBase REST API 客户端依赖 -->
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>4.12.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.10.1</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.cdimascio</groupId>
+            <artifactId>dotenv-java</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+
         <!-- Lombok 1.18.30：与 maven-compiler-plugin 3.11 兼容性最好 -->
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -108,7 +125,6 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
