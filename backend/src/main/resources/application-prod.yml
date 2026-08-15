@@ -6,7 +6,7 @@ spring:
     name: moonlit-treehouse
 
   datasource:
-    url: jdbc:mysql://172.17.0.9:3306/treehouse?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true&autoReconnect=true&failOverReadOnly=false&maxReconnects=3
+    url: jdbc:mysql://sh-cynosdbmysql-grp-n2h58owi.sql.tencentcdb.com:29436/treehouse?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true&autoReconnect=true&failOverReadOnly=false&maxReconnects=3
     username: treehouse
     password: ...000xue
     driver-class-name: com.mysql.cj.jdbc.Driver
